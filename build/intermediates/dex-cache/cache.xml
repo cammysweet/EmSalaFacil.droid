@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\camil\Source\Repos\EmSalaFacilDroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\camil\Source\Repos\EmSalaFacilDroid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a2b235d2d3925e467f4ac9b5768f5dfb9a7c23a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\camil\Source\Repos\EmSalaFacilDroid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ad8b4ecbf69b83126cb881a8cf7af60f755cb6eb">
+        <dex dex="C:\Users\camil\Source\Repos\EmSalaFacilDroid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_2b22687c951bb60c91450f8653fddd20248704a6\classes.dex" />
+    </item>
+
+</items>
