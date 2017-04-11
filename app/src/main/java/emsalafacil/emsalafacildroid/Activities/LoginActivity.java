@@ -35,7 +35,6 @@ import java.util.List;
 
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.R;
-import emsalafacil.emsalafacildroid.Util;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -67,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView mEmailView;
+    private AutoCompleteTextView mMatriculaView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
@@ -78,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mMatriculaView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -125,7 +124,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             return true;
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-            Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(mMatriculaView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
                     .setAction(android.R.string.ok, new View.OnClickListener() {
                         @Override
                         @TargetApi(Build.VERSION_CODES.M)
@@ -165,11 +164,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         // Reset errors.
-        mEmailView.setError(null);
+        mMatriculaView.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        String matricula = mMatriculaView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -183,16 +182,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email))
+        if (TextUtils.isEmpty(matricula))
         {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
+            mMatriculaView.setError(getString(R.string.error_field_required));
+            focusView = mMatriculaView;
             cancel = true;
         }
-        else if (!loginController.isEmailValid(email))
+        else if (!loginController.isMatriculaValid(matricula))
         {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
+            mMatriculaView.setError(getString(R.string.error_invalid_email));
+            focusView = mMatriculaView;
+            cancel = true;
+        }
+        else if(!loginController.isLoginApiOk(matricula, password))
+        {
+            mMatriculaView.setError("Matrícula ou senha inválidos.");
+            focusView = mMatriculaView;
             cancel = true;
         }
 
@@ -207,11 +212,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+            mAuthTask = new UserLoginTask(matricula, password);
             mAuthTask.execute((Void) null);
 
-            Intent informaCursoTurma = new Intent(this, InformaCursoTurmaActivity.class);
-            startActivity(informaCursoTurma);
+//            Intent informaCursoTurma = new Intent(this, InformaCursoTurmaActivity.class);
+//            startActivity(informaCursoTurma);
+
+            Intent calendarioView = new Intent(this, CalendarioActivity.class);
+            startActivity(calendarioView);
         }
     }
 
@@ -293,7 +301,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 new ArrayAdapter<>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
-        mEmailView.setAdapter(adapter);
+        mMatriculaView.setAdapter(adapter);
     }
 
 

@@ -15,4 +15,6 @@
     </string>
     <string name="title_activity_informa_curso_turma">InformaCursoTurma</string>
     <string name="title_activity_calendario">CalendarioActivity</string>
+
+    <string name="urlApi">localhost:8080</string>
 </resources>

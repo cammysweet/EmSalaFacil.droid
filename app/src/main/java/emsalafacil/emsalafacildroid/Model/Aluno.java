@@ -6,31 +6,21 @@ package emsalafacil.emsalafacildroid.Model;
 
 public class Aluno
 {
-    public Aluno(long matricula, String nome, Turma turma)
-    {
-        setMatricula(matricula);
-        setNome(nome);
-        setTurma(turma);
+    public Aluno(){}
+
+    private int matricula;
+    private String nomeAluno;
+    private String status;
+    private Ensalamento ensalamento;
+    private Turma turma;
+    private Curso curso;
+
+    public Curso getCurso() {
+        return curso;
     }
 
-    long matricula;
-    String nome;
-    Turma turma;
-
-    public long getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(long matricula) {
-        this.matricula = matricula;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
     public Turma getTurma() {
@@ -40,6 +30,42 @@ public class Aluno
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getNomeAluno() {
+        return nomeAluno;
+    }
+
+    public void setNomeAluno(String nomeAluno) {
+        this.nomeAluno = nomeAluno;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Ensalamento getEnsalamento() {
+        return ensalamento;
+    }
+
+    public void setEnsalamento(Ensalamento ensalamento) {
+        this.ensalamento = ensalamento;
+    }
+
+
+
+
 
 
 }

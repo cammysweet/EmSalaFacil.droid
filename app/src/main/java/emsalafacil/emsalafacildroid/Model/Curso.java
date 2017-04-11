@@ -6,29 +6,25 @@ package emsalafacil.emsalafacildroid.Model;
 
 public class Curso
 {
-    public Curso(int id, String nome)
-    {
-        setId(id);
-        setNome(nome);
-    }
+    public Curso(){}
 
-    int id;
-    String Nome;
+    private int idCurso;
+    private String nomeCurso;
 
     public int getId() {
-        return id;
+        return idCurso;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idCurso = id;
     }
 
     public String getNome() {
-        return Nome;
+        return nomeCurso;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        nomeCurso = nome;
     }
 
 

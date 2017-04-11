@@ -11,6 +11,30 @@
     tools:context="emsalafacil.emsalafacildroid.Activities.CalendarioActivity">
 
 
+    <TextView
+        android:id="@+id/_lblBoasVindas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bem vindo(a)," />
+
+    <TextView
+        android:id="@+id/_lblMatricula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Matrícula:" />
+
+    <TextView
+        android:id="@+id/_lblTurma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sua turma é:" />
+
+    <TextView
+        android:id="@+id/_lblCurso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Curso:" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
