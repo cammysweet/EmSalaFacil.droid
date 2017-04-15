@@ -1,5 +1,6 @@
 package emsalafacil.emsalafacildroid.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +21,6 @@ public class CalendarioActivity extends AppCompatActivity
     private TextView lblTurma;
     private TextView lblCurso;
     CalendarView simpleCalendarView;
-    private boolean dayChanged = false;
 
     private static int dia;
     private static int mes;
@@ -48,6 +48,8 @@ public class CalendarioActivity extends AppCompatActivity
         lblTurma.setText("Sua turma é: "+aluno.getTurma().getDescricao());
         lblCurso.setText("Curso: "+aluno.getCurso().getNome());
 
+        final Context packageContext = this;
+
         simpleCalendarView = (CalendarView) findViewById(R.id.calendarView);
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -59,15 +61,10 @@ public class CalendarioActivity extends AppCompatActivity
                 dia = dayOfMonth;
                 mes = month+1;
                 ano = year;
-                dayChanged = true;
+                Intent ensalamentoView = new Intent(packageContext, EnsalamentoActivity.class);
+                startActivity(ensalamentoView);
             }
         });
-
-        if(dayChanged)
-        {
-            Intent ensalamentoView = new Intent(this, EnsalamentoActivity.class);
-            startActivity(ensalamentoView);
-        }
     }
 
 }
