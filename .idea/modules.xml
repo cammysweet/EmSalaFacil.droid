@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EmSalaFacilDroid.iml" filepath="$PROJECT_DIR$/EmSalaFacilDroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EmSalaFacil.droid.iml" filepath="$PROJECT_DIR$/EmSalaFacil.droid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

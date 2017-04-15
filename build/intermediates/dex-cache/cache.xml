@@ -3,21 +3,156 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\camil\Source\Repos\EmSalaFacilDroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\natha\.android\build-cache\fd399cba706108752b0a6d93c7e8fa7dfc2b0420\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_21f944b691a7e50d5c92bc50cd1dc5437d2c22bc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\26a922af52483e80c669f5f897ab0a358a0cf3ea\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a3e61044038fb54cddf6b8dc79f41d2b57f42caf">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2c7c6819a53133fafeecd8217a641ccbf3c9d504\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f8cd18896166057658b8687ff92f517065c30dd2">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_b3e2eb564096dafa9dde3600d83b321c4767b35d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\1726d18bbb70aae0489de4815be033312da3e77e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9cb7152b2beb8b6d67b188c5ebdb6347cbac04e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\5fcae8e1d829a2764869bd4c5570736d89b95470\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fbb206f7a119f66ce171d95aae1225a5b209a8b7">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5981709e6d59fb5c64b8f0046f217ed6b79ee853\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\6722377134dce54ddce67f5ebf22c035091505e2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3cfbff63427d3e11c320fe8361a10f6fa7bf5aee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\411b5c3fa814c1dd0f144c0ac539c65d3383e27b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d136ae68629bb64ac198ea14e964f4e88b85314c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\8b971a6d8abb41f17590252877af81b0653c703f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9ab787a20aae245b5b3651ae0b9c38459eb37715">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e8612da50aaea515016723300d454c5e2943660e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.0\support-annotations-25.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.0_824e2d609ce74c1b244019b49b2a16ee1eda6cfc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\0ef54327a7f6b9743711375c396e4fcc19ac3b2c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b71c171d1e68b4dce6b00392c62a6dd49f5bbabb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\d83e3195a8a2cfde928321d097f9f7e1d13f6415\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a57ec5727f42510145f3a20fad272ec43842fc3c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_013b6d53335711229659651cd4320f279eaf88bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\d698cd796bfee5c8052d44d80c798b9df130dc8f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_72ab4ceb1c7e8dea4b50f6f50f36909f65b0276b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\6f1e8dc51a170e0a179d6b0af14d7b9c81307584\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_12186474b169320953b56319b003859796e3c88c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\.android\build-cache\bdfd0e985f7dea11272816106027834e39047da7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="518768f3200963fbfec652f498da2c9d39245234">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_25ba32b526f4664cd8449062494263d0a057bf91\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\camil\Source\Repos\EmSalaFacilDroid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a2b235d2d3925e467f4ac9b5768f5dfb9a7c23a1\classes.dex" />
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_2dc3fe108a7341fcd61570f1f7a6eebec00820c0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\camil\Source\Repos\EmSalaFacilDroid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\natha\.android\build-cache\72df9e85ebeb7ba026942393747ae49cd6280e09\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="30d9362c558fdc45796b833f2e1cbf3ac321a511">
-        <dex dex="C:\Users\camil\Source\Repos\EmSalaFacilDroid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_2b22687c951bb60c91450f8653fddd20248704a6\classes.dex" />
+        sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
+        <dex dex="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5ad886df09ab5c83e01790c00479a78cb4d779ce\classes.dex" />
     </item>
 
 </items>

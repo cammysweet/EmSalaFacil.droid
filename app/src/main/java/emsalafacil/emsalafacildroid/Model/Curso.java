@@ -10,6 +10,15 @@ public class Curso
 
     private int idCurso;
     private String nomeCurso;
+    private Turma mTurma;
+
+    public Turma getmTurma() {
+        return mTurma;
+    }
+
+    public void setmTurma(Turma mTurma) {
+        this.mTurma = mTurma;
+    }
 
     public int getId() {
         return idCurso;

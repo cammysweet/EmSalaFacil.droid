@@ -15,6 +15,7 @@ public class Ensalamento
     private Date datainicio;
     private Date dataFim;
     private String diaDaSemana;
+    private String disponibilidade;
 
     public int getIdEnsalamento() {
         return idEnsalamento;
@@ -64,5 +65,5 @@ public class Ensalamento
         this.disponibilidade = disponibilidade;
     }
 
-    private String disponibilidade;
+
 }

@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import emsalafacil.emsalafacildroid.Model.Aluno;
 import emsalafacil.emsalafacildroid.Model.Curso;
 import emsalafacil.emsalafacildroid.R;
 import emsalafacil.emsalafacildroid.Util;

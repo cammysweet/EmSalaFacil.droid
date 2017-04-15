@@ -6,12 +6,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import emsalafacil.emsalafacildroid.Model.Aluno;
-import emsalafacil.emsalafacildroid.Model.Curso;
-import emsalafacil.emsalafacildroid.Model.Ensalamento;
-import emsalafacil.emsalafacildroid.Model.Turma;
+import emsalafacil.emsalafacildroid.Model.*;
 import emsalafacil.emsalafacildroid.R;
 import emsalafacil.emsalafacildroid.Util;
+import emsalafacil.emsalafacildroid.enumeradores.Turno;
 
 /**
  * Created by camil on 10/04/2017.
@@ -21,33 +19,72 @@ public class AlunoController
 {
     String urlApi = String.valueOf(R.string.urlApi);
 
-    public Aluno GetAlunoByMatricula(String matricula)
+    public Usuario GetAlunoByMatricula(String matricula)
     {
-        Aluno aluno;
+        Usuario aluno;
         String retorno;
 
         try
         {
-            URL apiEnd = new URL(urlApi + "/aluno/getAluno/"+matricula);
-            int codigoResposta;
-            HttpURLConnection conexao;
-            InputStream is;
+//            URL apiEnd = new URL(urlApi + "/usuario/getUsuario/"+matricula);
+//            int codigoResposta;
+//            HttpURLConnection conexao;
+//            InputStream is;
+//
+//            conexao = (HttpURLConnection) apiEnd.openConnection();
+//            conexao.setRequestMethod("GET");
+//            conexao.setReadTimeout(15000);
+//            conexao.setConnectTimeout(15000);
+//            conexao.connect(); //InvocationTargetException
+//
+//            codigoResposta = conexao.getResponseCode();
+//            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+//                is = conexao.getInputStream();
+//            else
+//                is = conexao.getErrorStream();
+//
+//            retorno = Util.rawToJson(is);
+//
+//            aluno = JsonToAluno(retorno);
 
-            conexao = (HttpURLConnection) apiEnd.openConnection();
-            conexao.setRequestMethod("GET");
-            conexao.setReadTimeout(15000);
-            conexao.setConnectTimeout(15000);
-            conexao.connect(); //InvocationTargetException
+            /////////////////temporário/////////////////////////////////
+            aluno = new Usuario();
+            aluno.setNomeCompleto("Camila Cardoso");
+            aluno.setEmail("camila@camila.com");
 
-            codigoResposta = conexao.getResponseCode();
-            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-                is = conexao.getInputStream();
-            else
-                is = conexao.getErrorStream();
+            Ensalamento ensalamento = new Ensalamento();
+            //ensalamento.setDataFim("01/01/2017");
+            //ensalamento.setDatainicio();
+            ensalamento.setDiaDaSemana("Segunda");
+            ensalamento.setDisponibilidade("ok");
+            ensalamento.setIdEnsalamento(1);
+            ensalamento.setTurno(Turno.NOTURNO);
 
-            retorno = Util.rawToJson(is);
+            aluno.setEnsalamento(ensalamento);
+            aluno.setMatricula(1201500669);
 
-            aluno = JsonToAluno(retorno);
+            Sala sala = new Sala();
+            sala.setCapacidade(50);
+            sala.setIdSala(1);
+
+            aluno.setSala(sala);
+            aluno.setSenha("1201500669");
+            aluno.setStatus("ATIVO");
+
+            Turma turma = new Turma();
+            turma.setEnsalamento(ensalamento);
+            //turma.setCurso(curso);
+            turma.setDescricao("TDS 151 A");
+            turma.setIdTurma(1);
+
+            Curso curso = new Curso();
+            curso.setId(1);
+            curso.setmTurma(turma);
+            curso.setNome("Análise e desenvolvimento de sistemas");
+            turma.setCurso(curso);
+            turma.setQuantidadeAlunos(50);
+            aluno.setTurma(turma);
+            /////////////////temporário/////////////////////////////////
 
             return aluno;
         }
@@ -57,13 +94,13 @@ public class AlunoController
         }
     }
 
-    private Aluno JsonToAluno(String json)
+    private Usuario JsonToAluno(String json)
     {
-        Aluno aluno;
+        Usuario aluno;
 
         try
         {
-            aluno = new Aluno();
+            aluno = new Usuario();
 
             JSONObject mainObject = new JSONObject(json);
             aluno.setMatricula(mainObject.getInt("matricula"));
@@ -73,7 +110,7 @@ public class AlunoController
             sb.append(aluno.getMatricula());
             String matricula = sb.toString();
 
-            aluno.setNomeAluno(mainObject.getString("nomeAluno"));
+            aluno.setNomeCompleto(mainObject.getString("nomeAluno"));
             aluno.setStatus(mainObject.getString("status"));
             String ensalamentoJson = mainObject.getString("ensalamento");
             Ensalamento ensalamento = new EnsalamentoController().JsonToEnsalamento(ensalamentoJson);

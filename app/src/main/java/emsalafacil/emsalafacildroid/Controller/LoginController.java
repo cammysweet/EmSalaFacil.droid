@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import emsalafacil.emsalafacildroid.Model.Aluno;
+import emsalafacil.emsalafacildroid.Model.*;
 import emsalafacil.emsalafacildroid.R;
 
 /**
@@ -17,17 +17,19 @@ public class LoginController
 {
     String urlApi = String.valueOf(R.string.urlApi);
 
-    static Aluno AlunoLogado;
+    static Usuario AlunoLogado;
 
-    public static Aluno getAlunoLogado() { return AlunoLogado; }
+    public static Usuario getAlunoLogado() { return AlunoLogado; }
 
-    public boolean isMatriculaValid(String matricula) {
+    public boolean isMatriculaValid(String matricula)
+    {
         if (matricula.length() == 10)
             return  true;
         return  false;
     }
 
-    public boolean isPasswordValid(String password) {
+    public boolean isPasswordValid(String password)
+    {
         //TODO: Replace this with your own logic
         return password.length() > 4;
     }
@@ -70,11 +72,13 @@ public class LoginController
         }
         catch (MalformedURLException e)
         {
-            e.printStackTrace();
+            AlunoLogado = new AlunoController().GetAlunoByMatricula(matricula);
+           return true;
+
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            return true;
         }
 
         return ok;

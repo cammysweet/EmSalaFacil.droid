@@ -8,7 +8,6 @@ public class Sala
 {
     private int idSala;
     private int capacidade;
-    private Ensalamento ensalamento;
 
     public int getIdSala() {
         return idSala;
@@ -24,14 +23,6 @@ public class Sala
 
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
-    }
-
-    public Ensalamento getEnsalamento() {
-        return ensalamento;
-    }
-
-    public void setEnsalamento(Ensalamento ensalamento) {
-        this.ensalamento = ensalamento;
     }
 
 

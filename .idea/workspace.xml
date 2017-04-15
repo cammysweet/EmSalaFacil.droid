@@ -10,40 +10,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="834068fd-64ff-41c9-b999-46bf323babb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/AlunoController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/CursoController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/EnsalamentoController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/TurmaController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Disciplina.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Ensalamento.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Professor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Sala.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/TipoDeSala.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/enumeradores/Turno.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Endpoints/LoginEndpoint.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-08-18-13-22-345.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-08-18-18-47-144.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-08-18-20-48-339.rawproto" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_android_25.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EmSalaFacil.droid.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Usuario.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/EmSalaFacilDroid.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Aluno.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Professor.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/constraint_layout_1_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/constraint_layout_1_0_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/constraint_layout_solver_1_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/constraint_layout_solver_1_0_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/espresso_core_2_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/espresso_core_2_2_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/espresso_idling_resource_2_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/espresso_idling_resource_2_2_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/exposed_instrumentation_api_publish_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/exposed_instrumentation_api_publish_0_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_library_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_library_1_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_compat_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_compat_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/transition_25_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/transition_25_3_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/CalendarioActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/CalendarioActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/InformaCursoTurmaController.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/InformaCursoTurmaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/AlunoController.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/AlunoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/CursoController.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/CursoController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/LoginController.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Aluno.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Aluno.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Curso.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Curso.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turma.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turma.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendario.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendario.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Ensalamento.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Ensalamento.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Sala.java" afterPath="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Sala.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <ignored path="EmSalaFacil.droid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,13 +87,16 @@
     <favorites_list name="EmSalaFacil.droid" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="CalendarioActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/CalendarioActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="273">
+              <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+              <folding>
+                <element signature="e#1543#1916#0" expanded="true" />
+                <element signature="e#1915#1916#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,7 +116,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\camil\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\natha\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -113,14 +129,14 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="EmSalaFacilDroid" />
+              <option name="name" value="EmSalaFacil.droid" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="EmSalaFacilDroid" />
+                <option name="name" value="EmSalaFacil.droid" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
@@ -138,7 +154,7 @@
           <value>
             <list>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'EmSalaFacilDroid'." />
+                <option name="description" value="Displays the sub-projects of root project 'EmSalaFacil.droid'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
               </ExternalTaskPojo>
@@ -177,7 +193,7 @@
                 <option name="name" value="assembleDebugUnitTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'EmSalaFacilDroid'. [incubating]" />
+                <option name="description" value="Displays the configuration model of root project 'EmSalaFacil.droid'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="model" />
               </ExternalTaskPojo>
@@ -192,7 +208,7 @@
                 <option name="name" value="prepareComAndroidSupportAppcompatV72530Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'EmSalaFacilDroid' (some of the displayed tasks may belong to subprojects)." />
+                <option name="description" value="Displays the tasks runnable from root project 'EmSalaFacil.droid' (some of the displayed tasks may belong to subprojects)." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="tasks" />
               </ExternalTaskPojo>
@@ -215,7 +231,7 @@
                 <option name="name" value="deviceCheck" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'EmSalaFacilDroid'." />
+                <option name="description" value="Displays all dependencies declared in root project 'EmSalaFacil.droid'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencies" />
               </ExternalTaskPojo>
@@ -285,7 +301,7 @@
                 <option name="name" value="compileDebugAndroidTestJavaWithJavac" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'EmSalaFacilDroid'. [incubating]" />
+                <option name="description" value="Displays the components produced by root project 'EmSalaFacil.droid'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="components" />
               </ExternalTaskPojo>
@@ -433,7 +449,7 @@
                 <option name="name" value="uninstallDebugAndroidTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'EmSalaFacilDroid'." />
+                <option name="description" value="Displays the insight into a specific dependency in root project 'EmSalaFacil.droid'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
@@ -734,12 +750,12 @@
                 <option name="name" value="prepareComAndroidSupportSupportV42530Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the dependent components of components in root project 'EmSalaFacilDroid'. [incubating]" />
+                <option name="description" value="Displays the dependent components of components in root project 'EmSalaFacil.droid'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependentComponents" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in root project 'EmSalaFacilDroid'." />
+                <option name="description" value="Displays all buildscript dependencies declared in root project 'EmSalaFacil.droid'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="buildEnvironment" />
               </ExternalTaskPojo>
@@ -866,7 +882,7 @@
                 <option name="name" value="generateReleaseResValues" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'EmSalaFacilDroid'." />
+                <option name="description" value="Displays the properties of root project 'EmSalaFacil.droid'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="properties" />
               </ExternalTaskPojo>
@@ -1608,6 +1624,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="C:\Users\camil\Source\Repos\EmSalaFacilDroid" value="4475023728461" />
+        <entry key="C:\Users\natha\Source\Repos\EmSalaFacil\EmSalaFacil.droid" value="4476614648537" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1757,7 +1774,7 @@
                   </entry>
                 </map>
               </option>
-              <option name="name" value="EmSalaFacilDroid" />
+              <option name="name" value="EmSalaFacil.droid" />
               <option name="projectBuildClasspath">
                 <list>
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/55gk2rcmfc6p2dg9u9ohc3hw9/gradle-3.3/src/announce" />
@@ -1919,33 +1936,35 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_calendario.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/CalendarioController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turno.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/enumeradores/Turno.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Disciplina.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Ensalamento.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Professor.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Sala.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/TipoDeSala.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/InformaCursoTurmaController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/CalendarioActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Curso.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turma.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/AlunoController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/TurmaController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/EnsalamentoController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/CursoController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Aluno.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Curso.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Ensalamento.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Usuario.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turma.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Sala.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/LoginController.java" />
+        <option value="$USER_HOME$/AppData/Local/Android/sdk/platforms/android-25/android.jar!/dalvik/system/BaseDexClassLoader.class" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/AlunoController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/CalendarioActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="776" />
+    <option name="x" value="1360" />
+    <option name="y" value="1" />
+    <option name="width" value="1452" />
+    <option name="height" value="865" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1972,27 +1991,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EmSalaFacilDroid" />
+              <option name="myItemId" value="EmSalaFacil.droid" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EmSalaFacilDroid" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EmSalaFacilDroid" />
+              <option name="myItemId" value="EmSalaFacil.droid" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -2000,13 +2010,31 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EmSalaFacilDroid" />
+              <option name="myItemId" value="EmSalaFacil.droid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EmSalaFacil.droid" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -2022,20 +2050,110 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EmSalaFacil.droid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emsalafacildroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EmSalaFacil.droid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emsalafacildroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EmSalaFacil.droid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emsalafacildroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EmSalaFacil.droid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emsalafacildroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EmSalaFacil.droid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="device.picker.selection" value="0423081986" />
-    <property name="last_opened_file_path" value="C:/Softwares/Git/Git/cmd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.3.0" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -2371,34 +2489,34 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
+    <frame x="1360" y="1" width="1452" height="865" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1552901" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2956153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45685998" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281471" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24271844" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20905173" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24328147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36350778" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2435,24 +2553,40 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/LoginController.java</url>
-          <line>35</line>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception">
           <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="11" />
+        </breakpoint>
+        <breakpoint enabled="true" type="CidrExceptionBreakpoint">
+          <properties />
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/CalendarioActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <folding>
+            <element signature="e#1543#1916#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3097">
           <caret line="201" column="11" selection-start-line="196" selection-start-column="10" selection-end-line="201" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="e#3231#3377#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2476,9 +2610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2501,9 +2632,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-          <folding>
-            <element signature="e#484#517#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2514,7 +2642,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="56" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2523,7 +2650,7 @@
         <state relative-caret-position="190">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="e#1013#1021#0" expanded="false" />
             <element signature="e#1402#1410#0" expanded="false" />
           </folding>
@@ -2537,7 +2664,7 @@
         <state relative-caret-position="303">
           <caret line="63" column="30" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="e#1013#1021#0" expanded="false" />
             <element signature="e#1402#1410#0" expanded="false" />
           </folding>
@@ -2551,9 +2678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
           <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-          <folding>
-            <element signature="e#484#517#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2562,9 +2686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2583,133 +2704,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="75" column="54" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turno.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turno.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/enumeradores/Turno.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-          <folding>
-            <element signature="e#972#973#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1118#1119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Disciplina.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding>
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#393#394#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Professor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#525#526#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
-            <element signature="e#608#609#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#794#795#0" expanded="true" />
-            <element signature="e#853#854#0" expanded="true" />
-            <element signature="e#899#900#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Sala.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding>
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#255#256#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#628#629#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/TipoDeSala.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#261#262#0" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#354#355#0" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#468#469#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#640#641#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Ensalamento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="79" column="73" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2724,7 +2726,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Curso.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/EnsalamentoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/CursoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/InformaCursoTurmaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="27" column="29" selection-start-line="25" selection-start-column="10" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Aluno.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
@@ -2732,10 +2755,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turma.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Disciplina.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="171">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Professor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/TipoDeSala.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#261#262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Ensalamento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2744,80 +2794,193 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Turma.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding>
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Curso.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Sala.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-fragment/25.3.0/support-fragment-25.3.0-sources.jar!/android/support/v4/app/FragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="314" column="12" selection-start-line="314" selection-start-column="12" selection-end-line="314" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/25.3.0/appcompat-v7-25.3.0-sources.jar!/android/support/v7/app/AppCompatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="4785" column="0" selection-start-line="4785" selection-start-column="0" selection-end-line="4785" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding>
+            <element signature="e#3231#3377#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/widget/TextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8599" column="0" selection-start-line="8599" selection-start-column="0" selection-end-line="8599" selection-end-column="0" />
+          <folding>
+            <element signature="e#319252#319253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/java/lang/reflect/InvocationTargetException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="90" column="40" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/app/ActivityThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="2338" column="0" selection-start-line="2338" selection-start-column="0" selection-end-line="2338" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/app/Instrumentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/view/LayoutInflater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="638" column="0" selection-start-line="638" selection-start-column="0" selection-end-line="638" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="513" column="0" selection-start-line="513" selection-start-column="0" selection-end-line="513" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/java/net/URL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-25/android.jar!/dalvik/system/BaseDexClassLoader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="16" column="77" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="411" column="27" selection-start-line="411" selection-start-column="27" selection-end-line="411" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/AlunoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#460#475#0" expanded="true" />
+            <element signature="method#JsonToAluno#0;class#AlunoController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        <state relative-caret-position="231">
+          <caret line="74" column="54" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/EnsalamentoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/CursoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/InformaCursoTurmaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="27" column="29" selection-start-line="25" selection-start-column="10" selection-end-line="27" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#538#545#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Model/Aluno.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="e#401#402#0" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Controller/AlunoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetAlunoByMatricula#0;class#AlunoController#0" expanded="false" />
-            <element signature="method#JsonToAluno#0;class#AlunoController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/emsalafacil/emsalafacildroid/Activities/CalendarioActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="273">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+          <folding>
+            <element signature="e#1543#1916#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
