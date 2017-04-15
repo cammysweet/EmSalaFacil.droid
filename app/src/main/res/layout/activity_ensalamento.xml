@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="emsalafacil.emsalafacildroid.Activities.EnsalamentoActivity">
+
+    <TextView
+        android:id="@+id/textTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sua turma é:"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <TextView
+        android:id="@+id/textCurso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Curso:"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <TextView
+        android:id="@+id/textData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data:"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <TextView
+        android:id="@+id/textHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horário:"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <TextView
+        android:id="@+id/textHoraInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Início:"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="212dp" />
+
+    <TextView
+        android:id="@+id/textHoraFim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fim:"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <TextView
+        android:id="@+id/textAula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aula:"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <TextView
+        android:id="@+id/textAulaDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descrição"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="325dp" />
+
+    <TextView
+        android:id="@+id/textProfessor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Professor:"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="370dp" />
+
+    <TextView
+        android:id="@+id/textProfNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="418dp" />
+
+    <TextView
+        android:id="@+id/textProfDisponivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Professor disponível na faculdade:"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="453dp" />
+
+    <Switch
+        android:id="@+id/switchDisponibilidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="294dp"
+        tools:layout_editor_absoluteY="443dp" />
+
+</android.support.constraint.ConstraintLayout>

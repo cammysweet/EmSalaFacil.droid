@@ -5,10 +5,14 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 
-import emsalafacil.emsalafacildroid.Model.Ensalamento;
+import emsalafacil.emsalafacildroid.Model.*;
 import emsalafacil.emsalafacildroid.R;
 import emsalafacil.emsalafacildroid.Util;
+import emsalafacil.emsalafacildroid.enumeradores.Disponibilidade;
+import emsalafacil.emsalafacildroid.enumeradores.Turno;
 
 /**
  * Created by camil on 10/04/2017.
@@ -16,37 +20,53 @@ import emsalafacil.emsalafacildroid.Util;
 
 public class EnsalamentoController
 {
+    LoginController loginController = new LoginController();
+    TurmaController turmaController = new TurmaController();
+    DisciplinaController disciplinaController = new DisciplinaController();
+    SalaController salaController = new SalaController();
+
+    Usuario aluno;
+
     String urlApi = String.valueOf(R.string.urlApi);
 
-    public Ensalamento GetEnsalamentoByTurma(int idTurrma)
+    public Ensalamento GetEnsalamento(int dia, int mes, int ano)
     {
-        Ensalamento ensalamento;
+        Ensalamento ensalamentoRetorno;
         String retorno;
 
         try
         {
-            URL apiEnd = new URL(urlApi + "/ensalamento/getEnsalamento/"+idTurrma);
-            int codigoResposta;
-            HttpURLConnection conexao;
-            InputStream is;
+            aluno = loginController.getAlunoLogado();
+            int idTurma = aluno.getTurma().getIdTurma();
 
-            conexao = (HttpURLConnection) apiEnd.openConnection();
-            conexao.setRequestMethod("GET");
-            conexao.setReadTimeout(15000);
-            conexao.setConnectTimeout(15000);
-            conexao.connect(); //InvocationTargetException
+            //***********************API*******************************************************************
+//            URL apiEnd = new URL(urlApi + "/ensalamento/getEnsalamento/"+idTurma+"/"+dia+"/"+mes+"/"+ano);
+//            int codigoResposta;
+//            HttpURLConnection conexao;
+//            InputStream is;
+//
+//            conexao = (HttpURLConnection) apiEnd.openConnection();
+//            conexao.setRequestMethod("GET");
+//            conexao.setReadTimeout(15000);
+//            conexao.setConnectTimeout(15000);
+//            conexao.connect(); //InvocationTargetException
+//
+//            codigoResposta = conexao.getResponseCode();
+//            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+//                is = conexao.getInputStream();
+//            else
+//                is = conexao.getErrorStream();
+//
+//            retorno = Util.rawToJson(is);
+//
+//            ensalamentoRetorno = JsonToEnsalamento(retorno);
+            //***********************FIM API**************************************************************
 
-            codigoResposta = conexao.getResponseCode();
-            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-                is = conexao.getInputStream();
-            else
-                is = conexao.getErrorStream();
+            //***********************FAKE*****************************************************************
+            ensalamentoRetorno = GetEnsalamentoFake(dia, mes, ano);
+            //***********************FIM FAKE*************************************************************
 
-            retorno = Util.rawToJson(is);
-
-            ensalamento = JsonToEnsalamento(retorno);
-
-            return ensalamento;
+            return ensalamentoRetorno;
         }
         catch(Exception e)
         {
@@ -61,12 +81,42 @@ public class EnsalamentoController
         try
         {
             ensalamento = new Ensalamento();
+            JSONObject mainObject = new JSONObject(json);
 
+            ensalamento.setIdEnsalamento(mainObject.getInt("idEnsalamento"));
+            ensalamento.setTurno(Turno.valueOf(mainObject.getString("turno")));
+            ensalamento.setDatainicio(Util.StringToDate(mainObject.getString("dataInicio")));
+            ensalamento.setDataFim(Util.StringToDate(mainObject.getString("dataFim")));
+            ensalamento.setDiaDaSemana(mainObject.getString("diaDaSemana"));
+            ensalamento.setDisponibilidade(Disponibilidade.valueOf(mainObject.getString("disponibilidade")));
+            ensalamento.setTurma(turmaController.JsonToTurma(mainObject.getString("turma")));
+            ensalamento.setDisciplina(disciplinaController.JsonToDisciplina(mainObject.getString("disciplina")));
+            ensalamento.setSala(salaController.JsonToSala(mainObject.getString("sala")));
             return ensalamento;
         }
         catch (Exception e)
         {
             return  null;
         }
+    }
+
+    private Ensalamento GetEnsalamentoFake(int dia, int mes, int ano)
+    {
+        aluno = loginController.getAlunoLogado();
+        DisciplinaController discContr = new DisciplinaController();
+        SalaController salaContr = new SalaController();
+
+        Ensalamento ensalamento = new Ensalamento();
+        ensalamento.setIdEnsalamento(1);
+        ensalamento.setTurno(Turno.NOTURNO);
+        ensalamento.setDatainicio(Util.StringToDate(dia+"/"+mes+"/"+ano + "19:00"));
+        ensalamento.setDataFim(Util.StringToDate(dia+"/"+mes+"/"+ano + "22:30"));
+        //ensalamento.setDiaDaSemana( ); setar direto na tela, pegando do calendar view
+        ensalamento.setDisponibilidade(Disponibilidade.SIM);
+        ensalamento.setTurma(aluno.getTurma());
+        ensalamento.setDisciplina(discContr.GetDisciplinaFake());
+        ensalamento.setSala(salaContr.GetSalaFake());
+
+        return ensalamento;
     }
 }

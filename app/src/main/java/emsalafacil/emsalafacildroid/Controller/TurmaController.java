@@ -5,9 +5,11 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import emsalafacil.emsalafacildroid.Model.Ensalamento;
 import emsalafacil.emsalafacildroid.Model.Turma;
+import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
 import emsalafacil.emsalafacildroid.Util;
 
@@ -18,8 +20,10 @@ import emsalafacil.emsalafacildroid.Util;
 public class TurmaController
 {
     String urlApi = String.valueOf(R.string.urlApi);
+    AlunoController alunoController = new AlunoController();
+    LoginController loginController = new LoginController();
 
-    public Turma GetTurmaByMatricula(String matricula)
+    public Turma GetTurmaByMatricula(int matricula)
     {
         Turma turma;
         String retorno;
@@ -59,22 +63,34 @@ public class TurmaController
     {
         Turma turma;
 
+        List<Usuario> alunosTurma = alunoController.getAlunosByTurma(
+                loginController.getAlunoLogado().getTurma().getIdTurma());
         try
         {
-            turma = new Turma();
+
             JSONObject mainObject = new JSONObject(json);
-
-            turma.setDescricao(mainObject.getString("descricao"));
-            turma.setIdTurma(mainObject.getInt("idTurma"));
-            Ensalamento ensalamento = new EnsalamentoController().GetEnsalamentoByTurma(turma.getIdTurma());
-            turma.setEnsalamento(ensalamento);
+            turma = new Turma(mainObject.getInt("idTurma"));
             turma.setQuantidadeAlunos(mainObject.getInt("quantidadeAlunos"));
-
+            turma.setDescricao(mainObject.getString("descricao"));
             return turma;
         }
         catch (Exception e)
         {
             return null;
         }
+    }
+
+    public Turma GetTurmaFake()
+    {
+        Turma turma = new Turma(1);
+        turma.setQuantidadeAlunos(50);
+        turma.setDescricao("TDS151A");
+        return turma;
+    }
+
+    public Turma GetTurmaById(int idTurma)
+    {
+        //TODO implementar método
+        return null;
     }
 }

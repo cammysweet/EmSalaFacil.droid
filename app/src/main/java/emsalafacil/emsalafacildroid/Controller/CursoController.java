@@ -18,7 +18,7 @@ public class CursoController
 {
     String urlApi = String.valueOf(R.string.urlApi);
 
-    public Curso GetCursoByMatricula(String matricula)
+    public Curso GetCursoByMatricula(int matricula)
     {
         Curso curso;
         String retorno;
@@ -70,5 +70,13 @@ public class CursoController
         {
             return null;
         }
+    }
+
+    public Curso GetCursoFake()
+    {
+        Curso curso = new Curso();
+        curso.setId(1);
+        curso.setNome("Análise e desenvolvimento de sistemas");
+        return curso;
     }
 }

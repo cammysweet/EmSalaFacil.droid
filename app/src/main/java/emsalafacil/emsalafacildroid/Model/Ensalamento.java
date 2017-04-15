@@ -2,6 +2,7 @@ package emsalafacil.emsalafacildroid.Model;
 
 import java.util.Date;
 
+import emsalafacil.emsalafacildroid.enumeradores.Disponibilidade;
 import emsalafacil.emsalafacildroid.enumeradores.Turno;
 
 /**
@@ -10,12 +11,54 @@ import emsalafacil.emsalafacildroid.enumeradores.Turno;
 
 public class Ensalamento
 {
+    public Ensalamento(){}
+    public Ensalamento(int idEnsalamento, Turno turno, Date datainicio, Date dataFim, String diaDaSemana,
+             Disponibilidade disponibilidade, Turma turma, Disciplina disciplina, Sala sala)
+    {
+        this.idEnsalamento = idEnsalamento;
+        this.turno = turno;
+        this.datainicio = datainicio;
+        this.dataFim = dataFim;
+        this.diaDaSemana = diaDaSemana;
+        this.disponibilidade = disponibilidade;
+        this.turma = turma;
+        this.disciplina = disciplina;
+        this.sala = sala;
+    }
+
     private int idEnsalamento;
     private Turno turno;
     private Date datainicio;
     private Date dataFim;
     private String diaDaSemana;
-    private String disponibilidade;
+    private Disponibilidade disponibilidade;
+    private Turma turma;
+    private Disciplina disciplina;
+    private Sala sala;
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
 
     public int getIdEnsalamento() {
         return idEnsalamento;
@@ -57,11 +100,11 @@ public class Ensalamento
         this.diaDaSemana = diaDaSemana;
     }
 
-    public String getDisponibilidade() {
+    public Disponibilidade getDisponibilidade() {
         return disponibilidade;
     }
 
-    public void setDisponibilidade(String disponibilidade) {
+    public void setDisponibilidade(Disponibilidade disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
 

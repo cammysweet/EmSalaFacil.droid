@@ -31,6 +31,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import emsalafacil.emsalafacildroid.Controller.LoginController;
@@ -55,10 +56,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * TODO: remove after connecting to a real authentication system.
      */
 
-    //TODO puxar em DUMMY_CREDENTIALS email:senha salvos na base - <(*-*<) Camila
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "1201500669:1201500669", "1201500666:1201500666"
-    };
+    List<String> lista = loginController.GetUsuariosCadastrados();
+    final List<String> DUMMY_CREDENTIALS = Collections.unmodifiableList(lista);
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
