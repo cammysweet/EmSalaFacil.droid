@@ -7,8 +7,10 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.EnsalamentoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
+import emsalafacil.emsalafacildroid.Model.Ensalamento;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
 
@@ -23,6 +25,9 @@ public class EnsalamentoActivity extends AppCompatActivity {
     private TextView txtProfessor;
     private Switch switchDisponibilidade;
     EnsalamentoController ensalamentoController = new EnsalamentoController();
+    LoginController loginController = new LoginController();
+    CalendarioActivity calendario = new CalendarioActivity();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,8 +44,24 @@ public class EnsalamentoActivity extends AppCompatActivity {
         txtProfessor = (TextView) findViewById(R.id.textProfNome);
         switchDisponibilidade = (Switch) findViewById(R.id.switchDisponibilidade);
 
-        //ensalamentoController.GetEnsalamento();
 
-        //txtTurma.setText(txtTurma.getText()+aluno.getTurma().getDescricao());
+        int dia = calendario.getDia();
+        int mes = calendario.getMes();
+        int ano = calendario.getAno();
+        Ensalamento ensalamento = ensalamentoController.GetEnsalamento(dia, mes, ano);
+
+        Usuario aluno = loginController.getAlunoLogado();
+
+        txtTurma.setText("Sua tchurma é: "+ ensalamento.getTurma().getDescricao());
+        txtCurso.setText("Seu curso é: "+ aluno.getCurso().getNome());
+        txtData.setText("Data: "+ dia+"/"+mes+"/"+ano);
+        //horarioinicio
+        //horariofim
+        txtDisciplina.setText(ensalamento.getDisciplina().getDescricaoDisciplina());
+        txtProfessor.setText("Diego");
+                //arrumar inicio e fim, professor e disponibilidade
+        // + ensalamento.getDisciplina());
+
+
     }
 }
