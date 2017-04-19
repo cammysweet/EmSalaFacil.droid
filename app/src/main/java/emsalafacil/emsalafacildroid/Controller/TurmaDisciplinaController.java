@@ -13,23 +13,23 @@ import emsalafacil.emsalafacildroid.Model.TurmaDisciplina;
 
 public class TurmaDisciplinaController
 {
-    DisciplinaController disciplinaController = new DisciplinaController();
-    TurmaController turmaController = new TurmaController();
+//    DisciplinaController disciplinaController = new DisciplinaController();
+//    TurmaController turmaController = new TurmaController();
 
-    public List<TurmaDisciplina> GetTurmaDisciplina(int idTurma)
-    {
-        List<Disciplina> disciplinas = disciplinaController.GetDisciplinasByTurma(idTurma);
-        Turma turma = turmaController.GetTurmaById(idTurma);
-        List<TurmaDisciplina> retorno = new ArrayList<TurmaDisciplina>();
-
-        for (Disciplina d : disciplinas)
-        {
-            TurmaDisciplina turmaDisciplina = new TurmaDisciplina();
-            turmaDisciplina.setDisciplina(d);
-            turmaDisciplina.setTurma(turma);
-            retorno.add(turmaDisciplina);
-        }
-
-        return retorno;
-    }
+//    public List<TurmaDisciplina> GetTurmaDisciplina(int idTurma)
+//    {
+//        List<Disciplina> disciplinas = disciplinaController.GetDisciplinasByTurma(idTurma);
+//        Turma turma = turmaController.GetTurmaById(idTurma);
+//        List<TurmaDisciplina> retorno = new ArrayList<TurmaDisciplina>();
+//
+//        for (Disciplina d : disciplinas)
+//        {
+//            TurmaDisciplina turmaDisciplina = new TurmaDisciplina();
+//            turmaDisciplina.setDisciplina(d);
+//            turmaDisciplina.setTurma(turma);
+//            retorno.add(turmaDisciplina);
+//        }
+//
+//        return retorno;
+//    }
 }

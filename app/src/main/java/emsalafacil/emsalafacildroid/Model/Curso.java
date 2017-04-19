@@ -1,9 +1,6 @@
 package emsalafacil.emsalafacildroid.Model;
 
-import java.util.List;
-
 import emsalafacil.emsalafacildroid.Controller.AlunoController;
-import emsalafacil.emsalafacildroid.Controller.DisciplinaController;
 
 /**
  * Created by camil on 08/04/2017.
@@ -11,7 +8,7 @@ import emsalafacil.emsalafacildroid.Controller.DisciplinaController;
 
 public class Curso
 {
-    DisciplinaController disciplinaController = new DisciplinaController();
+    //DisciplinaController disciplinaController = new DisciplinaController();
     AlunoController anuloController = new AlunoController();
 
     public Curso(){}
@@ -20,30 +17,30 @@ public class Curso
     {
         this.idCurso = idCurso;
         this.nomeCurso = nomeCurso;
-        this.disciplinas = disciplinaController.GetDisciplinasByCurso(idCurso);
-        this.usuarios = anuloController.getAlunosByCurso(idCurso);
+//        this.disciplinas = disciplinaController.GetDisciplinasByCurso(idCurso);
+//        this.usuarios = anuloController.getAlunosByCurso(idCurso);
     }
 
     private int idCurso;
     private String nomeCurso;
-    private List<Disciplina> disciplinas;
-    private List<Usuario> usuarios;
+//    private List<Disciplina> disciplinas;
+//    private List<Usuario> usuarios;
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
-
-    public List<Disciplina> getDisciplinas() {
-        return disciplinas;
-    }
-
-    public void setDisciplinas(List<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
-    }
+//    public List<Usuario> getUsuarios() {
+//        return usuarios;
+//    }
+//
+//    public void setUsuarios(List<Usuario> usuarios) {
+//        this.usuarios = usuarios;
+//    }
+//
+//    public List<Disciplina> getDisciplinas() {
+//        return disciplinas;
+//    }
+//
+//    public void setDisciplinas(List<Disciplina> disciplinas) {
+//        this.disciplinas = disciplinas;
+//    }
 
     public int getId() {
         return idCurso;

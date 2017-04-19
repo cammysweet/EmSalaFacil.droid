@@ -25,26 +25,28 @@ public class CursoController
 
         try
         {
-            URL apiEnd = new URL(urlApi + "/aluno/getAluno/"+matricula);
-            int codigoResposta;
-            HttpURLConnection conexao;
-            InputStream is;
+//            URL apiEnd = new URL(urlApi + "/aluno/getAluno/"+matricula);
+//            int codigoResposta;
+//            HttpURLConnection conexao;
+//            InputStream is;
+//
+//            conexao = (HttpURLConnection) apiEnd.openConnection();
+//            conexao.setRequestMethod("GET");
+//            conexao.setReadTimeout(15000);
+//            conexao.setConnectTimeout(15000);
+//            conexao.connect(); //InvocationTargetException
+//
+//            codigoResposta = conexao.getResponseCode();
+//            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+//                is = conexao.getInputStream();
+//            else
+//                is = conexao.getErrorStream();
+//
+//            retorno = Util.rawToJson(is);
+//
+//            curso = JsonToCurso(retorno);
 
-            conexao = (HttpURLConnection) apiEnd.openConnection();
-            conexao.setRequestMethod("GET");
-            conexao.setReadTimeout(15000);
-            conexao.setConnectTimeout(15000);
-            conexao.connect(); //InvocationTargetException
-
-            codigoResposta = conexao.getResponseCode();
-            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-                is = conexao.getInputStream();
-            else
-                is = conexao.getErrorStream();
-
-            retorno = Util.rawToJson(is);
-
-            curso = JsonToCurso(retorno);
+            curso = GetCursoFake();
 
             return curso;
         }
@@ -72,7 +74,7 @@ public class CursoController
         }
     }
 
-    public Curso GetCursoFake()
+    private Curso GetCursoFake()
     {
         Curso curso = new Curso();
         curso.setId(1);

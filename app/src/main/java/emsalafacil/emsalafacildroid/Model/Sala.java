@@ -1,7 +1,6 @@
 package emsalafacil.emsalafacildroid.Model;
 
 import emsalafacil.emsalafacildroid.enumeradores.TipoSala;
-import emsalafacil.emsalafacildroid.enumeradores.TipoUsuario;
 
 /**
  * Created by camil on 10/04/2017.

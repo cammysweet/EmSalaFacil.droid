@@ -2,16 +2,11 @@ package emsalafacil.emsalafacildroid.Controller;
 
 import org.json.JSONObject;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
 import emsalafacil.emsalafacildroid.Model.*;
 import emsalafacil.emsalafacildroid.R;
-import emsalafacil.emsalafacildroid.Util;
 import emsalafacil.emsalafacildroid.enumeradores.Status;
-import emsalafacil.emsalafacildroid.enumeradores.TipoUsuario;
 
 /**
  * Created by camil on 10/04/2017.
@@ -84,7 +79,6 @@ public class AlunoController
             aluno.setCurso(curso);
 
             aluno.setStatus(Status.valueOf(mainObject.getString("status")));
-            aluno.setTipoUsuario(TipoUsuario.valueOf(mainObject.getString("tipoUsuario")));
 
             return  aluno;
         }
@@ -103,27 +97,26 @@ public class AlunoController
         aluno.setEmail("camila@camila.com");
         aluno.setSenha("1201500669");
 
-        Turma turma = new TurmaController().GetTurmaFake();
+        Turma turma = new TurmaController().GetTurmaByMatricula(aluno.getMatricula());
         aluno.setTurma(turma);
 
-        Curso curso = new CursoController().GetCursoFake();
+        Curso curso = new CursoController().GetCursoByMatricula(aluno.getMatricula());
         aluno.setCurso(curso);
 
         aluno.setStatus(Status.ATIVO);
-        aluno.setTipoUsuario(TipoUsuario.ALUNO);
 
         return  aluno;
     }
 
-    public List<Usuario> getAlunosByTurma(int idTurma)
-    {
-        //TODO implementar método getAlunos bu idTurma
-        return null;
-    }
+//    public List<Usuario> getAlunosByTurma(int idTurma)
+//    {
+//        //TODO implementar método getAlunos bu idTurma
+//        return null;
+//    }
 
-    public List<Usuario> getAlunosByCurso(int idCurso)
-    {
-        //TODO implementar método getAlunos bu idCurso
-        return null;
-    }
+//    public List<Usuario> getAlunosByCurso(int idCurso)
+//    {
+//        //TODO implementar método getAlunos bu idCurso
+//        return null;
+//    }
 }

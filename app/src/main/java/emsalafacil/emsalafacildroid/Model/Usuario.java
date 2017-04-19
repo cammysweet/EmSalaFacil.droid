@@ -10,7 +10,7 @@ public class Usuario
 {
     public Usuario(){}
     public Usuario(int matricula, String nome, String email, String senha,
-                   Turma turma, Curso curso, Status status, TipoUsuario tipoUsuario)
+                   Turma turma, Curso curso, Status status)
     {
         this.matricula = matricula;
         this.nome = nome;
@@ -19,7 +19,6 @@ public class Usuario
         this.turma = turma;
         this.curso = curso;
         this.status = status;
-        this.tipoUsuario = tipoUsuario;
     }
 
     private int matricula;
@@ -29,7 +28,6 @@ public class Usuario
     private Turma turma;
     private Curso curso;
     private Status status;
-    private TipoUsuario tipoUsuario;
 
     public Curso getCurso() {
         return curso;
@@ -37,14 +35,6 @@ public class Usuario
 
     public void setCurso(Curso curso) {
         this.curso = curso;
-    }
-
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
     }
 
     public int getMatricula() {

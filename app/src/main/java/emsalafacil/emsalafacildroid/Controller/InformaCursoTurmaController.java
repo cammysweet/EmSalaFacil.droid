@@ -1,12 +1,8 @@
 package emsalafacil.emsalafacildroid.Controller;
 
-import android.content.Intent;
-import android.view.View;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import emsalafacil.emsalafacildroid.Activities.InformaCursoTurmaActivity;
 import emsalafacil.emsalafacildroid.Model.Curso;
 
 /**

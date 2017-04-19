@@ -1,5 +1,7 @@
 package emsalafacil.emsalafacildroid.Controller;
 
+import com.google.gson.Gson;
+
 import org.json.JSONObject;
 
 import java.io.InputStream;
@@ -21,9 +23,6 @@ import emsalafacil.emsalafacildroid.enumeradores.Turno;
 public class EnsalamentoController
 {
     LoginController loginController = new LoginController();
-    TurmaController turmaController = new TurmaController();
-    DisciplinaController disciplinaController = new DisciplinaController();
-    SalaController salaController = new SalaController();
 
     Usuario aluno;
 
@@ -82,6 +81,7 @@ public class EnsalamentoController
         {
             ensalamento = new Ensalamento();
             JSONObject mainObject = new JSONObject(json);
+            Gson gson = new Gson();
 
             ensalamento.setIdEnsalamento(mainObject.getInt("idEnsalamento"));
             ensalamento.setTurno(Turno.valueOf(mainObject.getString("turno")));
@@ -89,9 +89,10 @@ public class EnsalamentoController
             ensalamento.setDataFim(Util.StringToDate(mainObject.getString("dataFim")));
             ensalamento.setDiaDaSemana(mainObject.getString("diaDaSemana"));
             ensalamento.setDisponibilidade(Disponibilidade.valueOf(mainObject.getString("disponibilidade")));
-            ensalamento.setTurma(turmaController.JsonToTurma(mainObject.getString("turma")));
-            ensalamento.setDisciplina(disciplinaController.JsonToDisciplina(mainObject.getString("disciplina")));
-            ensalamento.setSala(salaController.JsonToSala(mainObject.getString("sala")));
+            ensalamento.setTurma(gson.fromJson(mainObject.getString("turma"), Turma.class));
+            ensalamento.setDisciplina(gson.fromJson(mainObject.getString("disciplina"), Disciplina.class));
+            ensalamento.setSala(gson.fromJson(mainObject.getString("sala"), Sala.class));
+
             return ensalamento;
         }
         catch (Exception e)
@@ -103,7 +104,6 @@ public class EnsalamentoController
     private Ensalamento GetEnsalamentoFake(int dia, int mes, int ano)
     {
         aluno = loginController.getAlunoLogado();
-        DisciplinaController discContr = new DisciplinaController();
         SalaController salaContr = new SalaController();
 
         Ensalamento ensalamento = new Ensalamento();
@@ -111,11 +111,14 @@ public class EnsalamentoController
         ensalamento.setTurno(Turno.NOTURNO);
         ensalamento.setDatainicio(Util.StringToDate(dia+"/"+mes+"/"+ano + "19:00"));
         ensalamento.setDataFim(Util.StringToDate(dia+"/"+mes+"/"+ano + "22:30"));
-        //ensalamento.setDiaDaSemana( ); setar direto na tela, pegando do calendar view
         ensalamento.setDisponibilidade(Disponibilidade.SIM);
         ensalamento.setTurma(aluno.getTurma());
-        ensalamento.setDisciplina(discContr.GetDisciplinaFake());
-        ensalamento.setSala(salaContr.GetSalaFake());
+        Disciplina disc = new Disciplina();
+        disc.setCurso(aluno.getCurso());
+        disc.setDescricaoDisciplina("Programação em componentes distribuídos");
+        disc.setIdDisciplina(1);
+        ensalamento.setDisciplina(disc);
+        ensalamento.setSala(salaContr.GetSalaBy());
 
         return ensalamento;
     }

@@ -24,10 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.InformaCursoTurmaActivity"
-            android:label="@string/title_activity_informa_curso_turma"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Activities.CalendarioActivity"
             android:label="@string/title_activity_calendario"
             android:theme="@style/AppTheme.NoActionBar" />

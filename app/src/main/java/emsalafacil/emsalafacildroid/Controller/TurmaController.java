@@ -30,26 +30,30 @@ public class TurmaController
 
         try
         {
-            URL apiEnd = new URL(urlApi + "/turma/getTurma/"+matricula);
-            int codigoResposta;
-            HttpURLConnection conexao;
-            InputStream is;
+            //***************************************************************
+//            URL apiEnd = new URL(urlApi + "/turma/getTurma/"+matricula);
+//            int codigoResposta;
+//            HttpURLConnection conexao;
+//            InputStream is;
+//
+//            conexao = (HttpURLConnection) apiEnd.openConnection();
+//            conexao.setRequestMethod("GET");
+//            conexao.setReadTimeout(15000);
+//            conexao.setConnectTimeout(15000);
+//            conexao.connect(); //InvocationTargetException
+//
+//            codigoResposta = conexao.getResponseCode();
+//            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+//                is = conexao.getInputStream();
+//            else
+//                is = conexao.getErrorStream();
+//
+//            retorno = Util.rawToJson(is);
+//
+//            turma = JsonToTurma(retorno);
+            //***************************************************************
 
-            conexao = (HttpURLConnection) apiEnd.openConnection();
-            conexao.setRequestMethod("GET");
-            conexao.setReadTimeout(15000);
-            conexao.setConnectTimeout(15000);
-            conexao.connect(); //InvocationTargetException
-
-            codigoResposta = conexao.getResponseCode();
-            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-                is = conexao.getInputStream();
-            else
-                is = conexao.getErrorStream();
-
-            retorno = Util.rawToJson(is);
-
-            turma = JsonToTurma(retorno);
+            turma = GetTurmaFake();
 
             return turma;
         }
@@ -63,14 +67,14 @@ public class TurmaController
     {
         Turma turma;
 
-        List<Usuario> alunosTurma = alunoController.getAlunosByTurma(
-                loginController.getAlunoLogado().getTurma().getIdTurma());
+//        List<Usuario> alunosTurma = alunoController.getAlunosByTurma(
+//                loginController.getAlunoLogado().getTurma().getIdTurma());
         try
         {
 
             JSONObject mainObject = new JSONObject(json);
             turma = new Turma(mainObject.getInt("idTurma"));
-            turma.setQuantidadeAlunos(mainObject.getInt("quantidadeAlunos"));
+            //turma.setQuantidadeAlunos(mainObject.getInt("quantidadeAlunos"));
             turma.setDescricao(mainObject.getString("descricao"));
             return turma;
         }
@@ -80,7 +84,7 @@ public class TurmaController
         }
     }
 
-    public Turma GetTurmaFake()
+    private Turma GetTurmaFake()
     {
         Turma turma = new Turma(1);
         turma.setQuantidadeAlunos(50);
@@ -88,9 +92,9 @@ public class TurmaController
         return turma;
     }
 
-    public Turma GetTurmaById(int idTurma)
-    {
-        //TODO implementar método
-        return null;
-    }
+//    public Turma GetTurmaById(int idTurma)
+//    {
+//        // implementar método
+//        return null;
+//    }
 }
