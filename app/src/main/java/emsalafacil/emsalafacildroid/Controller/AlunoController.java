@@ -55,6 +55,7 @@ public class AlunoController
         {
             aluno = GetAlunoFake();
             return aluno;
+            //return null; //TODO quando existir usuário cadastrado na api, retornar somente o null
         }
     }
 
@@ -107,16 +108,5 @@ public class AlunoController
 
         return  aluno;
     }
-
-//    public List<Usuario> getAlunosByTurma(int idTurma)
-//    {
-//        //TODO implementar método getAlunos bu idTurma
-//        return null;
-//    }
-
-//    public List<Usuario> getAlunosByCurso(int idCurso)
-//    {
-//        //TODO implementar método getAlunos bu idCurso
-//        return null;
-//    }
+    
 }
