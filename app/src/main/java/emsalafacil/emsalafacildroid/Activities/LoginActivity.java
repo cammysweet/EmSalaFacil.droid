@@ -3,24 +3,22 @@ package emsalafacil.emsalafacildroid.Activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-
-import android.content.CursorLoader;
-import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -33,10 +31,20 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -75,6 +83,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private LoginButton loginButton;
+    private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -127,6 +137,53 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         catch (NoSuchAlgorithmException e) {
 
         }
+
+
+        /// login fb
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
+        callbackManager = CallbackManager.Factory.create();
+
+        loginButton = (LoginButton) findViewById(R.id.login_facebook_button);
+
+        loginButton.setReadPermissions(Arrays.asList("email"));
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
+        {
+            @Override
+            public void onSuccess(LoginResult loginResult)
+            {
+                Log.i("ID_FB",loginResult.getAccessToken().getUserId());
+                goMainScreen(loginResult.getAccessToken().getUserId());
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(getApplicationContext(), R.string.cancel_login, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(FacebookException error)
+            {
+                Toast.makeText(getApplicationContext(), R.string.error_login+error.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    private void goMainScreen(String ID)
+    {
+        Intent intent = new Intent(LoginActivity.this,CompletarCadastro.class);
+        intent.putExtra("FB_ID",ID);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     private void populateAutoComplete()
@@ -238,11 +295,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = new UserLoginTask(matricula, password);
             mAuthTask.execute((Void) null);
 
-//            Intent informaCursoTurma = new Intent(this, InformaCursoTurmaActivity.class);
-//            startActivity(informaCursoTurma);
-
-            Intent calendarioView = new Intent(this, CalendarioActivity.class);
-            startActivity(calendarioView);
+            Intent intent = new Intent(this, CompletarCadastro.class);
+            startActivity(intent);
         }
     }
 

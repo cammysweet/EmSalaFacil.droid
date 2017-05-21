@@ -2,10 +2,15 @@ package emsalafacil.emsalafacildroid.Controller;
 
 import org.json.JSONObject;
 
-import java.util.List;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
-import emsalafacil.emsalafacildroid.Model.*;
+import emsalafacil.emsalafacildroid.Model.Curso;
+import emsalafacil.emsalafacildroid.Model.Turma;
+import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
+import emsalafacil.emsalafacildroid.Util;
 import emsalafacil.emsalafacildroid.enumeradores.Status;
 
 /**
@@ -23,38 +28,33 @@ public class AlunoController
 
         try
         {
-            //******************************API**************************************
-//            URL apiEnd = new URL(urlApi + "/usuario/getUsuario/"+matricula);
-//            int codigoResposta;
-//            HttpURLConnection conexao;
-//            InputStream is;
-//
-//            conexao = (HttpURLConnection) apiEnd.openConnection();
-//            conexao.setRequestMethod("GET");
-//            conexao.setReadTimeout(15000);
-//            conexao.setConnectTimeout(15000);
-//            conexao.connect(); //InvocationTargetException
-//
-//            codigoResposta = conexao.getResponseCode();
-//            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-//                is = conexao.getInputStream();
-//            else
-//                is = conexao.getErrorStream();
-//
-//            retorno = Util.rawToJson(is);
-//
-//            aluno = JsonToAluno(retorno);
-//******************************FIM API**************************************
+            URL apiEnd = new URL(urlApi + "/Usuario/Recuperar/"+matricula);
+            int codigoResposta;
+            HttpURLConnection conexao;
+            InputStream is;
 
-            //FAKE
-            aluno = GetAlunoFake();
-            //FIM FAKE
+            conexao = (HttpURLConnection) apiEnd.openConnection();
+            conexao.setRequestMethod("GET");
+            conexao.setReadTimeout(15000);
+            conexao.setConnectTimeout(15000);
+            conexao.connect(); //InvocationTargetException
+
+            codigoResposta = conexao.getResponseCode();
+            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+                is = conexao.getInputStream();
+            else
+                is = conexao.getErrorStream();
+
+            retorno = Util.rawToJson(is);
+
+            aluno = JsonToAluno(retorno);
 
             return aluno;
         }
         catch(Exception e)
         {
-            return null;
+            aluno = GetAlunoFake();
+            return aluno;
         }
     }
 
