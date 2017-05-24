@@ -20,6 +20,16 @@ public class Sala
     private int capacidade;
     private TipoSala tipoSala;
 
+    private String Descricao;
+
+    public String getDescricao() {
+        return Descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.Descricao = descricao;
+    }
+
     public TipoSala getTipoDeSala() {
         return tipoSala;
     }

@@ -1,13 +1,16 @@
 package emsalafacil.emsalafacildroid.Activities;
 
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
-import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.EnsalamentoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.Model.Ensalamento;
@@ -24,10 +27,18 @@ public class EnsalamentoActivity extends AppCompatActivity {
     private TextView txtDisciplina;
     private TextView txtProfessor;
     private Switch switchDisponibilidade;
+    private Button btnShareFacebook;
     EnsalamentoController ensalamentoController = new EnsalamentoController();
     LoginController loginController = new LoginController();
     CalendarioActivity calendario = new CalendarioActivity();
+    int dia = calendario.getDia();
+    int mes = calendario.getMes();
+    int ano = calendario.getAno();
 
+    Ensalamento ensalamento = ensalamentoController.GetEnsalamento(dia, mes, ano);
+    String disciplina = ensalamento.getDisciplina().getDescricaoDisciplina();
+    String turma = ensalamento.getTurma().getDescricao();
+    String sala = ensalamento.getSala().getDescricao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,25 +54,40 @@ public class EnsalamentoActivity extends AppCompatActivity {
         txtDisciplina = (TextView) findViewById(R.id.textAulaDesc);
         txtProfessor = (TextView) findViewById(R.id.textProfNome);
         switchDisponibilidade = (Switch) findViewById(R.id.switchDisponibilidade);
+        btnShareFacebook = (Button) findViewById(R.id.btnShareFacebook);
 
-
-        int dia = calendario.getDia();
-        int mes = calendario.getMes();
-        int ano = calendario.getAno();
-        Ensalamento ensalamento = ensalamentoController.GetEnsalamento(dia, mes, ano);
 
         Usuario aluno = loginController.getAlunoLogado();
 
-        txtTurma.setText("Sua tchurma é: "+ ensalamento.getTurma().getDescricao());
+        txtTurma.setText("Sua tchurma é: "+ turma);
         txtCurso.setText("Seu curso é: "+ aluno.getCurso().getNome());
         txtData.setText("Data: "+ dia+"/"+mes+"/"+ano);
         //horarioinicio
         //horariofim
-        txtDisciplina.setText(ensalamento.getDisciplina().getDescricaoDisciplina());
+        txtDisciplina.setText(disciplina);
         txtProfessor.setText("Diego");
                 //arrumar inicio e fim, professor e disponibilidade
         // + ensalamento.getDisciplina());
 
+        btnShareFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shareContent(view);
+            }
+        });
+
+
+    }
+
+    public void shareContent(View view)
+    {
+                ShareLinkContent content = new ShareLinkContent.Builder()
+                .setContentTitle("Em Sala Fácil")
+                        .setContentDescription("No dia "+dia+"/"+mes+"/"+ano+" tenho aula de "+disciplina
+                        +" com a turma "+turma+" na sala A103" )//+sala
+                .setContentUrl(Uri.parse("https://developers.facebook.com"))
+                .build();
+        ShareDialog.show(EnsalamentoActivity.this, content);
 
     }
 }

@@ -60,7 +60,7 @@ public class LoginV2Activity extends AppCompatActivity {
 
         loginButton = (LoginButton) findViewById(R.id.btnLoginFacebookv2);
 
-        loginButton.setReadPermissions(Arrays.asList("email", "public_profile", "user_friends"));
+        loginButton.setReadPermissions(Arrays.asList("email", "public_profile", "user_friends", "publish_actions"));
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
         {

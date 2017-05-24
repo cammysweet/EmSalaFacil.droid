@@ -105,4 +105,10 @@
         tools:layout_editor_absoluteX="294dp"
         tools:layout_editor_absoluteY="443dp" />
 
+    <Button
+        android:id="@+id/btnShareFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Compartilhar Ensalamento" />
+
 </LinearLayout>
