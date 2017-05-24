@@ -34,7 +34,8 @@
             android:label="@string/title_activity_calendario"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.EnsalamentoActivity" />
-        <activity android:name=".Activities.CompletarCadastro"></activity>
+        <activity android:name=".Activities.CompletarCadastro" />
+        <activity android:name=".Activities.LoginV2Activity"></activity>
     </application>
 
 </manifest>

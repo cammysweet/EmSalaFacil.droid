@@ -21,6 +21,76 @@ public class AlunoController
 {
     String urlApi = String.valueOf(R.string.urlApi);
 
+    public Usuario GetAlunoByIdFacebook(String idFacebook)
+    {
+        Usuario aluno;
+        String retorno;
+
+        try
+        {
+            URL apiEnd = new URL(urlApi + "/Usuario/RecuperarPorIdFacebook/"+idFacebook);
+            int codigoResposta;
+            HttpURLConnection conexao;
+            InputStream is;
+
+            conexao = (HttpURLConnection) apiEnd.openConnection();
+            conexao.setRequestMethod("GET");
+            conexao.setReadTimeout(15000);
+            conexao.setConnectTimeout(15000);
+            conexao.connect(); //InvocationTargetException
+
+            codigoResposta = conexao.getResponseCode();
+            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+                is = conexao.getInputStream();
+            else
+                is = conexao.getErrorStream();
+
+            retorno = Util.rawToJson(is);
+
+            aluno = JsonToAluno(retorno);
+
+            return aluno;
+        }
+        catch(Exception e)
+        {
+            aluno = GetAlunoFake();
+            return aluno;
+            //return null; //TODO quando existir usuário cadastrado na api, retornar somente o null
+        }
+    }
+
+    public boolean CadastrarAluno(Usuario aluno)
+    {
+        String retorno;
+
+        try
+        {
+            URL apiEnd = new URL(urlApi + "/Usuario/Cadastrar");
+            int codigoResposta;
+            HttpURLConnection conexao;
+
+            conexao = (HttpURLConnection) apiEnd.openConnection();
+            conexao.setRequestMethod("POST");
+            //TODO CONFIRMAR ONDE POE O OBJ DO POST
+            conexao.setReadTimeout(15000);
+            conexao.setConnectTimeout(15000);
+            conexao.connect(); //InvocationTargetException
+
+            codigoResposta = conexao.getResponseCode();
+            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+                return false;
+
+            return true;
+        }
+        catch(Exception e)
+        {
+            aluno = GetAlunoFake();
+            return true;
+            //return false; //TODO quando existir usuário cadastrado na api, retornar somente o false
+        }
+    }
+
+
     public Usuario GetAlunoByMatricula(String matricula)
     {
         Usuario aluno;
@@ -108,5 +178,5 @@ public class AlunoController
 
         return  aluno;
     }
-    
+
 }

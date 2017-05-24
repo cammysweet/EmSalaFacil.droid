@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import emsalafacil.emsalafacildroid.Model.Autenticacao;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
 import emsalafacil.emsalafacildroid.Util;
@@ -39,11 +40,17 @@ public class LoginController
         return password.length() > 4;
     }
 
-    public boolean validateFacebookLogin(String matricula)
+    public boolean isLoginFacebookOk(String idFacebook)
     {
         try
         {
-            AlunoLogado = new AlunoController().GetAlunoByMatricula(matricula);
+            AlunoLogado = new AlunoController().GetAlunoByIdFacebook(idFacebook);
+            if(AlunoLogado == null)
+                return false;
+
+            Autenticacao.setLogadoFacebook(true);
+            Autenticacao.setLogado(true);
+            Autenticacao.setUsuarioLogado(AlunoLogado);
             return true;
         }
         catch (Exception e)
@@ -56,9 +63,14 @@ public class LoginController
     {
         AlunoLogado = new AlunoController().GetAlunoByMatricula(matricula);
         if (AlunoLogado != null)
+        {
+            Autenticacao.setLogado(true);
+            Autenticacao.setLogadoFacebook(false);
+            Autenticacao.setUsuarioLogado(AlunoLogado);
             return  true;
-        return false;
+        }
 
+        return false;
     }
 
 

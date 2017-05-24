@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.R;
@@ -16,6 +17,8 @@ public class CompletarCadastro extends AppCompatActivity {
     private EditText editMatricula;
     private Button btnAvancarMatricula;
     private String facebookID;
+    private Spinner spinnerCurso;
+    private Spinner spinnerTurma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,9 +28,13 @@ public class CompletarCadastro extends AppCompatActivity {
 
         editMatricula = (EditText) findViewById(R.id.editMatricula);
         btnAvancarMatricula = (Button) findViewById(R.id.btnAvancarMatricula);
+        spinnerCurso = (Spinner) findViewById(R.id.spinnerCurso);
+        spinnerTurma = (Spinner) findViewById(R.id.spinnerTurma);
         facebookID = getIntent().getStringExtra("FB_ID");
-
         Button btnAvancar = (Button) findViewById(R.id.btnAvancarMatricula);
+
+        //CursorAdapter(this,)
+
         btnAvancar.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -37,7 +44,7 @@ public class CompletarCadastro extends AppCompatActivity {
                 View focusView = null;
                 boolean cancel = false;
 
-                new LoginController().validateFacebookLogin(matricula);
+                new LoginController().isLoginFacebookOk(matricula);
 
                 if (TextUtils.isEmpty(matricula))
                 {

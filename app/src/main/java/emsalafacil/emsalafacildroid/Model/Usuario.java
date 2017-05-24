@@ -28,6 +28,15 @@ public class Usuario
     private Turma turma;
     private Curso curso;
     private Status status;
+    private String IdFacebook;
+
+    public String getIdFacebook() {
+        return IdFacebook;
+    }
+
+    public void setIdFacebook(String idFacebook) {
+        this.IdFacebook = idFacebook;
+    }
 
     public Curso getCurso() {
         return curso;
