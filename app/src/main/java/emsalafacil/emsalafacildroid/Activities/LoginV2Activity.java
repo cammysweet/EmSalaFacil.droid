@@ -14,7 +14,6 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -23,7 +22,6 @@ import java.util.Arrays;
 
 import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
-import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
 
 public class LoginV2Activity extends AppCompatActivity {
@@ -60,34 +58,20 @@ public class LoginV2Activity extends AppCompatActivity {
 
         loginButton = (LoginButton) findViewById(R.id.btnLoginFacebookv2);
 
-        loginButton.setReadPermissions(Arrays.asList("email", "public_profile", "user_friends", "publish_actions"));
+        loginButton.setReadPermissions(Arrays.asList("email","public_profile"));//, , "user_friends", "publish_actions"
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
         {
             @Override
             public void onSuccess(LoginResult loginResult)
             {
-                String idFacebook = loginResult.getAccessToken().getUserId();
-
-                Profile profile = Profile.getCurrentProfile();
-
-                loginResult.getRecentlyGrantedPermissions();
-                Log.i("ID_FB",idFacebook);
-                if(loginController.isLoginFacebookOk(idFacebook))
-                    goMainScreen();
-
-                Usuario aluno = new Usuario();
-                aluno.setSenha("");
-                aluno.setEmail("");
-                aluno.setNome(profile.getFirstName() + profile.getMiddleName() + profile.getLastName());
-                aluno.setIdFacebook(idFacebook);
-
-                alunoController.CadastrarAluno(aluno);
-                goMainScreen();
+                Log.i("ID_FB",loginResult.getAccessToken().getUserId());
+                goMainScreen(loginResult.getAccessToken().getUserId());
             }
 
             @Override
-            public void onCancel() {
+            public void onCancel()
+            {
                 Toast.makeText(getApplicationContext(), R.string.cancel_login, Toast.LENGTH_SHORT).show();
             }
 
@@ -101,9 +85,27 @@ public class LoginV2Activity extends AppCompatActivity {
     }
 
 
-    private void goMainScreen()
+    private void goMainScreen(String idFacebook)
     {
-        Intent intent = new Intent(LoginV2Activity.this,CompletarCadastro.class);
+        //Profile profile = Profile.getCurrentProfile();
+
+        if(!loginController.isLoginFacebookOk(idFacebook))
+        {
+         //TODO VERIFICAR MATRÍCULA E ATUALIZAR USUARIO COM ID FB
+            entryMatricula.setError(null);
+            String matricula = entryMatricula.getText().toString();
+            View focusView = null;
+
+            if (TextUtils.isEmpty(matricula))
+            {
+                entryMatricula.setError(getString(R.string.error_field_required));
+                focusView = entryMatricula;
+                focusView.requestFocus();
+            }
+        }
+
+        Intent intent = new Intent(LoginV2Activity.this,CalendarioActivity.class);
+        intent.putExtra("FB_ID",idFacebook);
         startActivity(intent);
     }
 

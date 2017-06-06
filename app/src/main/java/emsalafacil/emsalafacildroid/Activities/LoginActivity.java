@@ -48,7 +48,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
+import emsalafacil.emsalafacildroid.Model.Autenticacao;
+import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -175,7 +178,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private void goMainScreen(String ID)
     {
-        Intent intent = new Intent(LoginActivity.this,CompletarCadastro.class);
+        Usuario user = new AlunoController().GetAlunoByIdFacebook(ID);
+        if(user == null)
+        {
+            Intent intent = new Intent(LoginActivity.this,CompletarCadastro.class);
+            intent.putExtra("FB_ID",ID);
+            startActivity(intent);
+        }
+        Autenticacao.setLogadoFacebook(true);
+        Autenticacao.setLogado(true);
+        Autenticacao.setUsuarioLogado(user);
+        Intent intent = new Intent(LoginActivity.this,CalendarioActivity.class);
         intent.putExtra("FB_ID",ID);
         startActivity(intent);
     }

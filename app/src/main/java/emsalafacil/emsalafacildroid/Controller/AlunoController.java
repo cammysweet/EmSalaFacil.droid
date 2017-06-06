@@ -167,7 +167,7 @@ public class AlunoController
         aluno.setNome("Camila Cardoso");
         aluno.setEmail("camila@camila.com");
         aluno.setSenha("1201500669");
-
+        aluno.setIdFacebook("akhlsuiahouirhiuejxoiau298123875862");
         Turma turma = new TurmaController().GetTurmaByMatricula(aluno.getMatricula());
         aluno.setTurma(turma);
 
