@@ -1,7 +1,5 @@
 package emsalafacil.emsalafacildroid.Model;
 
-import emsalafacil.emsalafacildroid.enumeradores.*;
-
 /**
  * Created by camil on 14/04/2017.
  */
@@ -13,10 +11,56 @@ public class Usuario
     private int id;
     private String matricula;
     private int tipoUsuarioId;
+    private TipoUsuario tipoUsuario;
     private String nome;
     private String email;
     private String senha;
     private String idFacebook;
+    private int idCurso;
+    private Curso curso;
+    private int idTurma;
+
+    public int getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(int idCurso) {
+        this.idCurso = idCurso;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public int getIdTurma() {
+        return idTurma;
+    }
+
+    public void setIdTurma(int idTurma) {
+        this.idTurma = idTurma;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
+
+    private Turma turma;
+
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
 
     public int getTipoUsuarioId() { return tipoUsuarioId; }
 

@@ -1,15 +1,15 @@
 package emsalafacil.emsalafacildroid.Controller;
 import com.google.gson.Gson;
+
 import org.json.JSONObject;
+
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import emsalafacil.emsalafacildroid.Model.LoginCommand;
+
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.Model.VinculoFacebookCommand;
-import emsalafacil.emsalafacildroid.R;
-import emsalafacil.emsalafacildroid.Util;
 
 /**
  * Created by camil on 10/04/2017.
@@ -17,73 +17,9 @@ import emsalafacil.emsalafacildroid.Util;
 
 public class AlunoController
 {
-    String urlApi = String.valueOf(R.string.urlApi);
+    String urlApi = "http://caiofelipe.com/api/"; // String.valueOf(R.string.urlApi);
 
     Gson gson = new Gson();
-
-    public Usuario GetAlunoByIdFacebook(String idFacebook)
-    {
-        try
-        {
-            URL apiEnd = new URL(urlApi + "usuario/getbyfacebook/");
-            int codigoResposta;
-            HttpURLConnection conexao;
-            InputStream is;
-
-            conexao = (HttpURLConnection) apiEnd.openConnection();
-            conexao.setRequestMethod("GET");
-            conexao.setReadTimeout(15000);
-            conexao.setConnectTimeout(15000);
-            conexao.connect(); //InvocationTargetException
-
-            codigoResposta = conexao.getResponseCode();
-            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-                is = conexao.getInputStream();
-            else
-                is = conexao.getErrorStream();
-
-            return JsonToAluno(Util.rawToJson(is));
-        }
-        catch(Exception e)
-        {
-            return null;
-        }
-    }
-
-    public Usuario LoginNativo(LoginCommand cmd)
-    {
-        try
-        {
-            URL apiEnd = new URL(urlApi + "usuario/login/");
-            int codigoResposta;
-            HttpURLConnection conexao;
-            InputStream is;
-
-            conexao = (HttpURLConnection) apiEnd.openConnection();
-            conexao.setRequestMethod("POST");
-            conexao.setReadTimeout(15000);
-            conexao.setConnectTimeout(15000);
-            conexao.connect(); //InvocationTargetException
-
-            conexao.setDoInput(true);
-            conexao.setDoOutput(true);
-
-            OutputStreamWriter writer = new OutputStreamWriter(conexao.getOutputStream());
-            writer.write(gson.toJson(cmd));
-
-            codigoResposta = conexao.getResponseCode();
-            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-                is = conexao.getInputStream();
-            else
-                is = conexao.getErrorStream();
-
-            return JsonToAluno(Util.rawToJson(is));
-        }
-        catch(Exception e)
-        {
-            return null;
-        }
-    }
 
     public Boolean VincularFacebook(VinculoFacebookCommand cmd)
     {
@@ -118,7 +54,7 @@ public class AlunoController
         }
     }
 
-    private Usuario JsonToAluno(String json)
+    public Usuario JsonToAluno(String json)
     {
         Usuario aluno;
 

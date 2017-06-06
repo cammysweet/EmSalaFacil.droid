@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.R;
 
 public class CompletarCadastro extends AppCompatActivity {
@@ -44,7 +43,7 @@ public class CompletarCadastro extends AppCompatActivity {
                 View focusView = null;
                 boolean cancel = false;
 
-                new LoginController().loginFacebook(matricula);
+                //loginFacebook(matricula);
 
                 if (TextUtils.isEmpty(matricula))
                 {

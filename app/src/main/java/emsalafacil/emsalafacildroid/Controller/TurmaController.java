@@ -5,11 +5,8 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
 
-import emsalafacil.emsalafacildroid.Model.Ensalamento;
 import emsalafacil.emsalafacildroid.Model.Turma;
-import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
 import emsalafacil.emsalafacildroid.Util;
 
@@ -31,29 +28,27 @@ public class TurmaController
         try
         {
             //***************************************************************
-//            URL apiEnd = new URL(urlApi + "/turma/getTurma/"+matricula);
-//            int codigoResposta;
-//            HttpURLConnection conexao;
-//            InputStream is;
-//
-//            conexao = (HttpURLConnection) apiEnd.openConnection();
-//            conexao.setRequestMethod("GET");
-//            conexao.setReadTimeout(15000);
-//            conexao.setConnectTimeout(15000);
-//            conexao.connect(); //InvocationTargetException
-//
-//            codigoResposta = conexao.getResponseCode();
-//            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-//                is = conexao.getInputStream();
-//            else
-//                is = conexao.getErrorStream();
-//
-//            retorno = Util.rawToJson(is);
-//
-//            turma = JsonToTurma(retorno);
-            //***************************************************************
+            URL apiEnd = new URL(urlApi + "/turma/getTurma/"+matricula);
+            int codigoResposta;
+            HttpURLConnection conexao;
+            InputStream is;
 
-            turma = GetTurmaFake();
+            conexao = (HttpURLConnection) apiEnd.openConnection();
+            conexao.setRequestMethod("GET");
+            conexao.setReadTimeout(15000);
+            conexao.setConnectTimeout(15000);
+            conexao.connect(); //InvocationTargetException
+
+            codigoResposta = conexao.getResponseCode();
+            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+                is = conexao.getInputStream();
+            else
+                is = conexao.getErrorStream();
+
+            retorno = Util.rawToJson(is);
+
+            turma = JsonToTurma(retorno);
+            //***************************************************************
 
             return turma;
         }
@@ -63,34 +58,32 @@ public class TurmaController
         }
     }
 
-    public Turma JsonToTurma(String json)
+    private Turma JsonToTurma(String json)
     {
         Turma turma;
 
-//        List<Usuario> alunosTurma = alunoController.getAlunosByTurma(
-//                loginController.getAlunoLogado().getTurma().getIdTurma());
         try
         {
+            turma = new Turma();
 
             JSONObject mainObject = new JSONObject(json);
-            turma = new Turma(mainObject.getInt("idTurma"));
-            //turma.setQuantidadeAlunos(mainObject.getInt("quantidadeAlunos"));
-            turma.setDescricao(mainObject.getString("descricao"));
-            return turma;
+            turma.setId(mainObject.getInt("Id"));
+            turma.setDescricao(mainObject.getString("Descricao"));
+            turma.setQuantidadeAlunos(mainObject.getInt("QuantidadeAlunos"));
+            return  turma;
         }
-        catch (Exception e)
+        catch(Exception e)
         {
             return null;
         }
     }
-
-    private Turma GetTurmaFake()
-    {
-        Turma turma = new Turma(1);
-        turma.setQuantidadeAlunos(50);
-        turma.setDescricao("TDS151A");
-        return turma;
-    }
+//    private Turma GetTurmaFake()
+//    {
+//        Turma turma = new Turma(1);
+//        turma.setQuantidadeAlunos(50);
+//        turma.setDescricao("TDS151A");
+//        return turma;
+//    }
 
 //    public Turma GetTurmaById(int idTurma)
 //    {
