@@ -21,7 +21,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".Activities.LoginActivity"
+            android:name=".Activities.LoginV2Activity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.EnsalamentoActivity" />
         <activity android:name=".Activities.CompletarCadastro" />
-        <activity android:name=".Activities.LoginV2Activity"></activity>
     </application>
 
 </manifest>

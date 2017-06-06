@@ -9,48 +9,36 @@ import emsalafacil.emsalafacildroid.enumeradores.*;
 public class Usuario
 {
     public Usuario(){}
-    public Usuario(int matricula, String nome, String email, String senha,
-                   Turma turma, Curso curso, Status status)
-    {
-        this.matricula = matricula;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.turma = turma;
-        this.curso = curso;
-        this.status = status;
-    }
 
-    private int matricula;
+    private int id;
+    private String matricula;
+    private int tipoUsuarioId;
     private String nome;
     private String email;
     private String senha;
-    private Turma turma;
-    private Curso curso;
-    private Status status;
-    private String IdFacebook;
+    private String idFacebook;
+
+    public int getTipoUsuarioId() { return tipoUsuarioId; }
+
+    public void setTipoUsuarioId(int tipoUsuarioId) { this.tipoUsuarioId = tipoUsuarioId; }
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public String getIdFacebook() {
-        return IdFacebook;
+        return idFacebook;
     }
 
     public void setIdFacebook(String idFacebook) {
-        this.IdFacebook = idFacebook;
+        this.idFacebook = idFacebook;
     }
 
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
@@ -74,24 +62,7 @@ public class Usuario
         return senha;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    public void setSenha(String senha) { this.senha = senha;  }
 
-    public Turma getTurma() {
-        return turma;
-    }
-
-    public void setTurma(Turma turma) {
-        this.turma = turma;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 
 }

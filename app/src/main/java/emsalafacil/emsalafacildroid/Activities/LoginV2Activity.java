@@ -14,14 +14,20 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONObject;
 
 import java.util.Arrays;
 
 import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
+import emsalafacil.emsalafacildroid.Model.LoginCommand;
 import emsalafacil.emsalafacildroid.R;
 
 public class LoginV2Activity extends AppCompatActivity {
@@ -46,7 +52,7 @@ public class LoginV2Activity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                onBtnLoginNativoClicked();
             }
         });
 
@@ -65,8 +71,30 @@ public class LoginV2Activity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult)
             {
-                Log.i("ID_FB",loginResult.getAccessToken().getUserId());
-                goMainScreen(loginResult.getAccessToken().getUserId());
+                //Profile profile = Profile.getCurrentProfile();
+                //profile.
+                GraphRequest.newMeRequest(
+                        loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback()
+                        {
+                            @Override
+                            public void onCompleted(JSONObject me, GraphResponse response)
+                            {
+                                if (response.getError() != null)
+                                {
+                                    // handle error
+                                }
+                                else
+                                {
+                                    String email = me.optString("email");
+                                    String id = me.optString("id");
+                                    // send email and id to your web server
+                                    goMainScreen(id, email);
+                                }
+                            }
+                        }).executeAsync();
+
+                //Log.i("ID_FB",loginResult.getAccessToken().getUserId());
+
             }
 
             @Override
@@ -85,32 +113,21 @@ public class LoginV2Activity extends AppCompatActivity {
     }
 
 
-    private void goMainScreen(String idFacebook)
+    private void goMainScreen(String idFacebook, String emailFacebook)
     {
-        //Profile profile = Profile.getCurrentProfile();
-
-        if(!loginController.isLoginFacebookOk(idFacebook))
+        if(!loginController.loginFacebook(idFacebook))
         {
-         //TODO VERIFICAR MATRÍCULA E ATUALIZAR USUARIO COM ID FB
-            entryMatricula.setError(null);
-            String matricula = entryMatricula.getText().toString();
-            View focusView = null;
-
-            if (TextUtils.isEmpty(matricula))
-            {
-                entryMatricula.setError(getString(R.string.error_field_required));
-                focusView = entryMatricula;
-                focusView.requestFocus();
-            }
+            Intent intent = new Intent(LoginV2Activity.this,CompletarCadastro.class);
+            startActivity(intent);
         }
 
         Intent intent = new Intent(LoginV2Activity.this,CalendarioActivity.class);
         intent.putExtra("FB_ID",idFacebook);
+        intent.putExtra("FB_EMAIL", emailFacebook);
         startActivity(intent);
     }
 
-
-    private void attemptLogin()
+    private void onBtnLoginNativoClicked()
     {
         // Reset errors.
         entryMatricula.setError(null);
@@ -119,6 +136,9 @@ public class LoginV2Activity extends AppCompatActivity {
         // Store values at the time of the login attempt.
         String matricula = entryMatricula.getText().toString();
         String password = entrySenha.getText().toString();
+        LoginCommand loginObj = new LoginCommand();
+        loginObj.setMatricula(matricula);
+        loginObj.setSenha(password);
 
         boolean cancel = false;
         View focusView = null;
@@ -144,7 +164,7 @@ public class LoginV2Activity extends AppCompatActivity {
             focusView = entryMatricula;
             cancel = true;
         }
-        else if(!loginController.isLoginApiOk(matricula, password))
+        else if(!loginController.loginNativo(loginObj))
         {
             entryMatricula.setError("Matrícula ou senha inválidos.");
             focusView = entryMatricula;
@@ -159,7 +179,7 @@ public class LoginV2Activity extends AppCompatActivity {
         }
         else
         {
-            Intent intent = new Intent(this, CompletarCadastro.class);
+            Intent intent = new Intent(this, CalendarioActivity.class);
             startActivity(intent);
         }
     }

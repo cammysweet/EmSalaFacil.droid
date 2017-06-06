@@ -16,7 +16,7 @@
     <string name="title_activity_informa_curso_turma">InformaCursoTurma</string>
     <string name="title_activity_calendario">CalendarioActivity</string>
 
-    <string name="urlApi">http://tretamaligna.com.br:9999/ControlEnsalamento/WS</string>
+    <string name="urlApi">http://caiofelipe.com/api/</string>
     <string name="facebook_app_id">304195960014480</string>
     <string name="cancel_login">"O login foi cancelado!"</string>
     <string name="error_login">"O login retornou um erro.</string>

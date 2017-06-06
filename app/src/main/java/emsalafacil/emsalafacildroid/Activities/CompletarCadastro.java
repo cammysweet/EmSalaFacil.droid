@@ -44,7 +44,7 @@ public class CompletarCadastro extends AppCompatActivity {
                 View focusView = null;
                 boolean cancel = false;
 
-                new LoginController().isLoginFacebookOk(matricula);
+                new LoginController().loginFacebook(matricula);
 
                 if (TextUtils.isEmpty(matricula))
                 {
