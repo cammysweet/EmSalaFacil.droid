@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.ArraySet;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,9 +22,11 @@ import com.google.gson.Gson;
 
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Set;
 import java.util.concurrent.ThreadFactory;
 
 import emsalafacil.emsalafacildroid.Controller.AlunoController;
@@ -44,6 +47,7 @@ public class LoginV2Activity extends AppCompatActivity {
     Button btnLogin;
     LoginButton loginButton;
     Boolean loginFacebookOk;
+    Boolean loginNativoOk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -107,14 +111,16 @@ public class LoginV2Activity extends AppCompatActivity {
 
     private void goMainScreen(String idFacebook, String emailFacebook, String matricula)
     {
-        VinculoFacebookCommand vinculoCmd = new VinculoFacebookCommand();
-        vinculoCmd.setIdFacebook(idFacebook);
-        vinculoCmd.setEmailFacebook(emailFacebook);
-        vinculoCmd.setMatricula(matricula);
+        //VinculoFacebookCommand vinculoCmd = new VinculoFacebookCommand();
+        //vinculoCmd.setIdFacebook(idFacebook);
+        //vinculoCmd.setEmailFacebook(emailFacebook);
+        //vinculoCmd.setMatricula(matricula);
 
-        if(!loginFacebook(vinculoCmd))
+        if(!loginFacebook(idFacebook))
         {
             Intent intent = new Intent(LoginV2Activity.this,CompletarCadastro.class);
+            intent.putExtra("FB_ID",idFacebook);
+            intent.putExtra("FB_EMAIL", emailFacebook);
             startActivity(intent);
         }
         else
@@ -185,23 +191,31 @@ public class LoginV2Activity extends AppCompatActivity {
 
     public  Boolean loginNativo(LoginCommand login)
     {
-        LoginController loginController = new LoginController();
-        new LoginNativoApi().execute(login);
-        if (loginController.getAlunoLogado() == null)
-            return false;
-        Autenticacao.setLogado(true);
-        Autenticacao.setLogadoFacebook(false);
-        Autenticacao.setUsuarioLogado(loginController.getAlunoLogado());
+        try
+        {
+            LoginController loginController = new LoginController();
+            new LoginNativoApi().execute(login);
+            Thread.sleep(5000);
+            if (!loginNativoOk)
+                return false;
+            Autenticacao.setLogado(true);
+            Autenticacao.setLogadoFacebook(false);
+            Autenticacao.setUsuarioLogado(loginController.getAlunoLogado());
 
-        return  true;
+            return  true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
-    public Boolean loginFacebook(VinculoFacebookCommand cmd)
+    public Boolean loginFacebook(String idFacebook)
     {
         try
         {
             LoginController loginController = new LoginController();
-            new LoginFacebookApi().execute(cmd);
+            new LoginFacebookApi().execute(idFacebook);
             Thread.sleep(5000);
             if(!loginFacebookOk)
                 return false;
@@ -226,7 +240,7 @@ public class LoginV2Activity extends AppCompatActivity {
 
             try
             {
-                URL apiEnd = new URL(urlApi + "usuario/login/");
+                URL apiEnd = new URL(urlApi + "usuario/login");
                 int codigoResposta;
                 HttpURLConnection conexao;
                 InputStream is;
@@ -237,19 +251,26 @@ public class LoginV2Activity extends AppCompatActivity {
                 conexao.setConnectTimeout(15000);
                 conexao.setDoInput(true);
                 conexao.setDoOutput(true);
+                OutputStreamWriter writer = new OutputStreamWriter(conexao.getOutputStream());
+                String json = gson.toJson(params[0]);
+                writer.write(json);
                 conexao.connect(); //InvocationTargetException
 
-                OutputStreamWriter writer = new OutputStreamWriter(conexao.getOutputStream());
-                writer.write(gson.toJson(params[0]));
+
 
                 codigoResposta = conexao.getResponseCode();
                 if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
                 {
                     is = conexao.getInputStream();
+                    loginNativoOk = true;
                     return  new AlunoController().JsonToAluno(Util.rawToJson(is));
                 }
-                is = conexao.getErrorStream();
-                return  null;
+                else
+                {
+                    conexao.getErrorStream();
+                    loginNativoOk = false;
+                    return  null;
+                }
             }
             catch(Exception e)
             {
@@ -260,21 +281,27 @@ public class LoginV2Activity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Usuario usuario)
         {
-            LoginController loginController = new LoginController();
-            loginController.setAlunoLogado(usuario);
+            if(usuario != null)
+            {
+                LoginController loginController = new LoginController();
+                loginController.setAlunoLogado(usuario);
+                loginNativoOk = true;
+            }
+           else
+                loginNativoOk = false;
         }
     }
 
-    private class LoginFacebookApi extends  AsyncTask<VinculoFacebookCommand, Void, Usuario>
+    private class LoginFacebookApi extends  AsyncTask<String, Void, Usuario>
     {
         @Override
-        protected Usuario doInBackground(VinculoFacebookCommand... params)
+        protected Usuario doInBackground(String... params)
         {
             try
             {
                 String urlApi = "http://caiofelipe.com/api/"; // String.valueOf(R.string.urlApi);
 
-                URL apiEnd = new URL(urlApi + "usuario/getbyfacebook/"+params[0].getIdFacebook());
+                URL apiEnd = new URL(urlApi + "usuario/getbyfacebook/"+params[0]);
                 int codigoResposta;
                 HttpURLConnection conexao;
                 InputStream is;

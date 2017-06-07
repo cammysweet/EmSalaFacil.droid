@@ -21,30 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Matrícula" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Escolha seu curso:" />
-
-    <Spinner
-        android:id="@+id/spinnerCurso"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Escolha sua turma:" />
-
-    <Spinner
-        android:id="@+id/spinnerTurma"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:inputType="number" />
 
     <Button
         android:id="@+id/btnAvancarMatricula"
