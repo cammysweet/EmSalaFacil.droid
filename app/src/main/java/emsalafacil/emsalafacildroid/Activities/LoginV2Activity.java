@@ -24,6 +24,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.concurrent.ThreadFactory;
 
 import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
@@ -42,6 +43,7 @@ public class LoginV2Activity extends AppCompatActivity {
     EditText entrySenha;
     Button btnLogin;
     LoginButton loginButton;
+    Boolean loginFacebookOk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -115,11 +117,13 @@ public class LoginV2Activity extends AppCompatActivity {
             Intent intent = new Intent(LoginV2Activity.this,CompletarCadastro.class);
             startActivity(intent);
         }
-
-        Intent intent = new Intent(LoginV2Activity.this,CalendarioActivity.class);
-        intent.putExtra("FB_ID",idFacebook);
-        intent.putExtra("FB_EMAIL", emailFacebook);
-        startActivity(intent);
+        else
+        {
+            Intent intent = new Intent(LoginV2Activity.this,CalendarioActivity.class);
+            intent.putExtra("FB_ID",idFacebook);
+            intent.putExtra("FB_EMAIL", emailFacebook);
+            startActivity(intent);
+        }
     }
 
     private void onBtnLoginNativoClicked()
@@ -179,7 +183,7 @@ public class LoginV2Activity extends AppCompatActivity {
         }
     }
 
-    public  boolean loginNativo(LoginCommand login)
+    public  Boolean loginNativo(LoginCommand login)
     {
         LoginController loginController = new LoginController();
         new LoginNativoApi().execute(login);
@@ -192,13 +196,14 @@ public class LoginV2Activity extends AppCompatActivity {
         return  true;
     }
 
-    public boolean loginFacebook(VinculoFacebookCommand cmd)
+    public Boolean loginFacebook(VinculoFacebookCommand cmd)
     {
         try
         {
             LoginController loginController = new LoginController();
             new LoginFacebookApi().execute(cmd);
-            if(loginController.getAlunoLogado() == null)
+            Thread.sleep(5000);
+            if(!loginFacebookOk)
                 return false;
             Autenticacao.setLogadoFacebook(true);
             Autenticacao.setLogado(true);
@@ -269,7 +274,7 @@ public class LoginV2Activity extends AppCompatActivity {
             {
                 String urlApi = "http://caiofelipe.com/api/"; // String.valueOf(R.string.urlApi);
 
-                URL apiEnd = new URL(urlApi + "usuario/getbyfacebook/");
+                URL apiEnd = new URL(urlApi + "usuario/getbyfacebook/"+params[0].getIdFacebook());
                 int codigoResposta;
                 HttpURLConnection conexao;
                 InputStream is;
@@ -282,11 +287,23 @@ public class LoginV2Activity extends AppCompatActivity {
 
                 codigoResposta = conexao.getResponseCode();
                 if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+                {
                     is = conexao.getInputStream();
-                else
-                    is = conexao.getErrorStream();
+                    Usuario usr = new AlunoController().JsonToAluno(Util.rawToJson(is));
+                    LoginController loginController = new LoginController();
+                    if(usr != null)
+                    {
+                        loginController.setAlunoLogado(usr);
+                        loginFacebookOk = true;
+                    }
+                    else
+                        loginFacebookOk = false;
+                    return usr;
+                }
 
-                return new AlunoController().JsonToAluno(Util.rawToJson(is));
+                loginFacebookOk = false;
+                conexao.getErrorStream();
+                return  null;
             }
             catch(Exception e)
             {
@@ -298,7 +315,14 @@ public class LoginV2Activity extends AppCompatActivity {
         protected void onPostExecute(Usuario usuario)
         {
             LoginController loginController = new LoginController();
-            loginController.setAlunoLogado(usuario);
+            if(usuario != null)
+            {
+                loginController.setAlunoLogado(usuario);
+                loginFacebookOk = true;
+            }
+            else
+                loginFacebookOk = false;
+
         }
     }
 }
