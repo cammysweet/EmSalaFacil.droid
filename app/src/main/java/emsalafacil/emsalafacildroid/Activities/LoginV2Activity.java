@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,6 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.gson.Gson;
@@ -47,6 +47,8 @@ public class LoginV2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        /// login fb
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login_v2);
 
         entryMatricula = (EditText) findViewById(R.id.entryMatriculav2);
@@ -59,44 +61,18 @@ public class LoginV2Activity extends AppCompatActivity {
             }
         });
 
-        /// login fb
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
-
         callbackManager = CallbackManager.Factory.create();
-
         loginButton = (LoginButton) findViewById(R.id.btnLoginFacebookv2);
 
         loginButton.setReadPermissions(Arrays.asList("email","public_profile"));//, , "user_friends", "publish_actions"
-
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
         {
             @Override
             public void onSuccess(LoginResult loginResult)
             {
-                //Profile profile = Profile.getCurrentProfile();
-                //profile.
-//                GraphRequest.newMeRequest(
-//                        loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback()
-//                        {
-//                            @Override
-//                            public void onCompleted(JSONObject me, GraphResponse response)
-//                            {
-//                                if (response.getError() != null)
-//                                {
-//                                    // handle error
-//                                }
-//                                else
-//                                {
-//                                    String email = me.optString("email");
-//                                    String id = me.optString("id");
-//                                    // send email and id to your web server
-//                                    goMainScreen(id, email, entryMatricula.getText().toString());
-//                                }
-//                            }
-//                        }).executeAsync();
-
-                //Log.i("ID_FB",loginResult.getAccessToken().getUserId());
+                Log.i("ID_FB",loginResult.getAccessToken().getUserId());
+                goMainScreen(loginResult.getAccessToken().getUserId(),
+                        "camila.cardoso65@hotmail.com", entryMatricula.getText().toString());
 
             }
 
@@ -113,6 +89,17 @@ public class LoginV2Activity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+//        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+//        if(accessToken != null){
+//            goMainScreen(accessToken.getUserId(),
+//                    "camila.cardoso65@hotmail.com", entryMatricula.getText().toString());
+//        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
 
