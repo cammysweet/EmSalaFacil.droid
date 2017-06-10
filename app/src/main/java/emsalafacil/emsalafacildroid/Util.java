@@ -16,6 +16,28 @@ import java.util.Date;
 
 public class Util
 {
+    public static String webToString(InputStream inputStream) {
+        InputStream localStream = inputStream;
+        String localString = "";
+        Writer writer = new StringWriter();
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(localStream, "UTF-8"));
+            String line = reader.readLine();
+            while (line != null) {
+                writer.write(line);
+                line = reader.readLine();
+            }
+            localString = writer.toString();
+            writer.close();
+            reader.close();
+            localStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return localString;
+    }
+
     public static String rawToJson(InputStream inputStream)
     {
         InputStream localStream = inputStream;

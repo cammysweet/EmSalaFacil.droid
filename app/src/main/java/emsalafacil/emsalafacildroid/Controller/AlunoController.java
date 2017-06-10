@@ -69,6 +69,12 @@ public class AlunoController
             aluno.setEmail(mainObject.getString("Email"));
             aluno.setSenha(mainObject.getString("Senha"));
             aluno.setIdFacebook(mainObject.getString("IdFacebook"));
+            aluno.setIdCurso(mainObject.getInt("IdCurso"));
+            aluno.setIdTurma(mainObject.getInt("IdTurma"));
+            aluno.setTipoUsuarioId(mainObject.getInt("TipoUsuarioId"));
+            aluno.setCurso(new CursoController().JsonToCurso(mainObject.getString("Curso")));
+            aluno.setTurma(new TurmaController().JsonToTurma(mainObject.getString("Turma")));
+
             return  aluno;
         }
         catch(Exception e)
