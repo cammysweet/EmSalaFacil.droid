@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -108,46 +109,50 @@ public class CompletarCadastro extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(VinculoFacebookCommand... params)
         {
-            String urlApi = "http://caiofelipe.com/api/"; // String.valueOf(R.string.urlApi);
             Gson gson = new Gson();
-
+            HttpURLConnection urlConnection = null;
             try
             {
-                URL apiEnd = new URL(urlApi + "usuario/vincularfacebook");
-                int codigoResposta;
-                HttpURLConnection conexao;
-                InputStream is;
+                URL url = new URL("http://caiofelipe.com/api/usuario/vincularfacebook");
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setRequestProperty("Content-type", "application/json");
+                urlConnection.setDoInput(true);
+                urlConnection.setDoOutput(true);
 
-                conexao = (HttpURLConnection) apiEnd.openConnection();
-                conexao.setRequestMethod("POST");
-                conexao.setReadTimeout(15000);
-                conexao.setConnectTimeout(15000);
-                conexao.setDoInput(true);
-                conexao.setDoOutput(true);
-                OutputStreamWriter writer = new OutputStreamWriter(conexao.getOutputStream());
-                String json = gson.toJson(params[0]);
-                writer.write(json);
-                conexao.connect(); //InvocationTargetException
+                DataOutputStream outputStream = new DataOutputStream(urlConnection.getOutputStream());
 
-                codigoResposta = conexao.getResponseCode();
-                if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+                String result = gson.toJson(params[0]);
+                outputStream.writeBytes(result);
+
+                int serverResponseCode = urlConnection.getResponseCode();
+                String serverResponseMessage = Util.webToString(urlConnection.getInputStream());
+
+                outputStream.flush();
+                outputStream.close();
+
+                responseMessage = serverResponseMessage;
+
+                if (serverResponseCode < HttpURLConnection.HTTP_BAD_REQUEST)
                 {
-                    is = conexao.getInputStream();
-                    responseMessage = is.toString();
                     vinculadoOk = true;
                     return  true;
                 }
                 else
                 {
-                    is = conexao.getErrorStream();
-                    responseMessage = is.toString();
                     vinculadoOk = false;
                     return  null;
                 }
             }
             catch(Exception e)
             {
+                vinculadoOk = false;
                 return null;
+            }
+            finally
+            {
+                if (urlConnection != null)
+                    urlConnection.disconnect();
             }
         }
 
