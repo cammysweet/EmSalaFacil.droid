@@ -11,6 +11,10 @@ public class LoginController
     public static Usuario getAlunoLogado() { return AlunoLogado; }
     public static void setAlunoLogado(Usuario alunoLogado){ AlunoLogado = alunoLogado; }
 
+    static Boolean vinculadoFacebook;
+    public static Boolean getVinculadoFacebook() { return vinculadoFacebook; }
+    public static void setVinculadoFacebook(Boolean _vinculadoFacebook){ vinculadoFacebook = _vinculadoFacebook; }
+
     public boolean isMatriculaValid(String matricula)
     {
         if (matricula.length() == 10)

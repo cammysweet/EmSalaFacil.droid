@@ -111,6 +111,8 @@ public class LoginV2Activity extends AppCompatActivity {
             if(erroLoginFacebookApi == "401")
             {
                 Intent intent = new Intent(LoginV2Activity.this,CompletarCadastro.class);
+                intent.putExtra("FB_ID", idFacebook);
+                intent.putExtra("FB_EMAIL", emailFacebook);
                 startActivity(intent);
             }
             else
@@ -124,8 +126,6 @@ public class LoginV2Activity extends AppCompatActivity {
         else
         {
             Intent intent = new Intent(LoginV2Activity.this, CalendarioActivity.class);
-            intent.putExtra("FB_ID", idFacebook);
-            intent.putExtra("FB_EMAIL", emailFacebook);
             startActivity(intent);
         }
 
@@ -236,7 +236,7 @@ public class LoginV2Activity extends AppCompatActivity {
         {
             Gson gson = new Gson();
             int serverResponseCode;
-            String serverResponseMessage;
+            String serverResponseMessage = "";
             HttpURLConnection urlConnection = null;
             try
             {
@@ -253,13 +253,17 @@ public class LoginV2Activity extends AppCompatActivity {
                 outputStream.writeBytes(result);
 
                 serverResponseCode = urlConnection.getResponseCode();
-                serverResponseMessage = Util.webToString(urlConnection.getInputStream());
+
+                if(serverResponseCode == HttpURLConnection.HTTP_OK)
+                    serverResponseMessage = Util.webToString(urlConnection.getInputStream());
 
                 outputStream.flush();
                 outputStream.close();
 
-                Usuario user = new AlunoController().JsonToAluno(serverResponseMessage);
-                return user;
+                if(serverResponseMessage != "")
+                    return new AlunoController().JsonToAluno(serverResponseMessage);
+
+                return null;
             }
             catch(Exception e)
             {

@@ -15,13 +15,11 @@ import com.google.gson.Gson;
 
 import java.io.DataOutputStream;
 import java.io.InputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
-import emsalafacil.emsalafacildroid.Model.LoginCommand;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.Model.VinculoFacebookCommand;
 import emsalafacil.emsalafacildroid.R;
@@ -57,43 +55,56 @@ public class CompletarCadastro extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                String matricula = editMatricula.getText().toString();
-                View focusView = null;
-                boolean cancel = false;
-
-                //loginFacebook(matricula);
-
-                if (TextUtils.isEmpty(matricula))
+                try
                 {
-                    editMatricula.setError(getString(R.string.error_field_required));
-                    focusView = editMatricula;
-                    cancel = true;
+                    String matricula = editMatricula.getText().toString();
+                    View focusView = null;
+                    boolean cancel = false;
+
+                    if (TextUtils.isEmpty(matricula))
+                    {
+                        editMatricula.setError(getString(R.string.error_field_required));
+                        focusView = editMatricula;
+                        cancel = true;
+                    }
+                    if (cancel)
+                    {
+                        // There was an error; don't attempt login and focus the first
+                        // form field with an error.
+                        focusView.requestFocus();
+                    }
+
+                    VinculoFacebookCommand cmd = new VinculoFacebookCommand();
+                    cmd.setMatricula(matricula);
+                    cmd.setIdFacebook(facebookID);
+                    cmd.setEmailFacebook(facebookEmail);
+
+                    new VinculaUsuarioFacebookApi().execute(cmd);
+                    Thread.sleep(5000);
+                    int x = 0;
+                    if(vinculadoOk)
+                    {
+                        new RecuperaUsuarioApi().execute(matricula);
+                        Thread.sleep(5000);
+                        if(LoginController.getAlunoLogado() != null)
+                        {
+                            Intent intent = new Intent(CompletarCadastro.this, CalendarioActivity.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(), "Erro ao  recuperar usuário.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), "Erro ao vincular contas.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                if (cancel)
+                catch (Exception e)
                 {
-                    // There was an error; don't attempt login and focus the first
-                    // form field with an error.
-                    focusView.requestFocus();
+                    int x = 0;
                 }
-
-                VinculoFacebookCommand cmd = new VinculoFacebookCommand();
-                cmd.setMatricula(matricula);
-                cmd.setIdFacebook(facebookID);
-                cmd.setEmailFacebook(facebookEmail);
-
-                new VinculaUsuarioFacebookApi().execute(cmd);
-                try{ Thread.sleep(5000); } catch (Exception e){}
-
-                if(vinculadoOk)
-                {
-                    Intent intent = new Intent(CompletarCadastro.this, CalendarioActivity.class);
-                    startActivity(intent);
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Erro ao vincular contas.", Toast.LENGTH_SHORT).show();
-                }
-
 
             }
         });
@@ -126,31 +137,20 @@ public class CompletarCadastro extends AppCompatActivity {
                 outputStream.writeBytes(result);
 
                 int serverResponseCode = urlConnection.getResponseCode();
-                String serverResponseMessage = Util.webToString(urlConnection.getInputStream());
-
                 outputStream.flush();
                 outputStream.close();
-
-                responseMessage = serverResponseMessage;
-
-                if (serverResponseCode < HttpURLConnection.HTTP_BAD_REQUEST)
-                {
-                    vinculadoOk = true;
+                if(serverResponseCode == HttpURLConnection.HTTP_OK)
                     return  true;
-                }
                 else
-                {
-                    vinculadoOk = false;
-                    return  null;
-                }
+                    return  false;
             }
             catch(Exception e)
             {
-                vinculadoOk = false;
-                return null;
+                return false;
             }
             finally
             {
+
                 if (urlConnection != null)
                     urlConnection.disconnect();
             }
@@ -162,11 +162,53 @@ public class CompletarCadastro extends AppCompatActivity {
             if(vinculado)
             {
                 LoginController loginController = new LoginController();
-                //TODO loginController.setVinculado(true);
+                loginController.setVinculadoFacebook(true);
                 vinculadoOk = true;
             }
             else
                 vinculadoOk = false;
+        }
+    }
+
+
+    private class RecuperaUsuarioApi extends AsyncTask<String, Void, Usuario>
+    {
+        @Override
+        protected Usuario doInBackground(String... params) {
+            try
+            {
+                String urlApi = "http://caiofelipe.com/api/"; // String.valueOf(R.string.urlApi);
+
+                URL apiEnd = new URL(urlApi + "usuario/getbymatricula/"+params[0]);
+                int codigoResposta;
+                HttpURLConnection conexao;
+                InputStream is;
+
+                conexao = (HttpURLConnection) apiEnd.openConnection();
+                conexao.setRequestMethod("GET");
+                conexao.setReadTimeout(15000);
+                conexao.setConnectTimeout(15000);
+                conexao.connect(); //InvocationTargetException
+
+                codigoResposta = conexao.getResponseCode();
+                if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+                {
+                    is = conexao.getInputStream();
+                    return new AlunoController().JsonToAluno(Util.rawToJson(is));
+                }
+                else
+                    return null;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Usuario usuario)
+        {
+            LoginController.setAlunoLogado(usuario);
         }
     }
 }

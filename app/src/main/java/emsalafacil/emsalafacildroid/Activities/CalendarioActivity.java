@@ -33,6 +33,11 @@ public class CalendarioActivity extends AppCompatActivity
     public static int getAno() { return ano; }
 
     @Override
+    public void onBackPressed() {
+        //método vazio, sobrescreve o método base e bloqueia o botão de voltar a tela
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
