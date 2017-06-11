@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sua turma é:"
-        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="31dp" />
 
     <TextView
