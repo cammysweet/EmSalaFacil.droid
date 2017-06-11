@@ -25,7 +25,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
 
-import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.Model.Autenticacao;
 import emsalafacil.emsalafacildroid.Model.LoginCommand;
@@ -257,7 +256,7 @@ public class LoginV2Activity extends AppCompatActivity {
                 outputStream.close();
 
                 if(serverResponseMessage != "")
-                    return new AlunoController().JsonToAluno(serverResponseMessage);
+                    return Util.JsonToUsuario(serverResponseMessage);
 
                 return null;
             }
@@ -300,7 +299,7 @@ public class LoginV2Activity extends AppCompatActivity {
                 {
                     loginFacebookApiOk = true;
                     is = conexao.getInputStream();
-                    return new AlunoController().JsonToAluno(Util.rawToJson(is));
+                    return Util.JsonToUsuario(Util.rawToJson(is));
                 }
 
                 else

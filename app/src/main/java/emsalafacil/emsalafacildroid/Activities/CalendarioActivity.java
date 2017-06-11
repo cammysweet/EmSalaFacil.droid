@@ -16,7 +16,6 @@ import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import emsalafacil.emsalafacildroid.Controller.EnsalamentoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.Model.Ensalamento;
 import emsalafacil.emsalafacildroid.Model.EnsalamentoCommand;
@@ -152,7 +151,7 @@ public class CalendarioActivity extends AppCompatActivity
                 outputStream.close();
 
                 if(serverResponseMessage != "")
-                    return new EnsalamentoController().JsonToEnsalamento(serverResponseMessage);
+                    return Util.JsonToEnsalamento(serverResponseMessage);
 
                 return null;
             }

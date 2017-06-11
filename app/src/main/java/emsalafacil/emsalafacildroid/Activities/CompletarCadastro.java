@@ -17,7 +17,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.Model.VinculoFacebookCommand;
@@ -189,7 +188,7 @@ public class CompletarCadastro extends AppCompatActivity {
                 if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
                 {
                     is = conexao.getInputStream();
-                    return new AlunoController().JsonToAluno(Util.rawToJson(is));
+                    return Util.JsonToUsuario(Util.rawToJson(is));
                 }
                 else
                     return null;

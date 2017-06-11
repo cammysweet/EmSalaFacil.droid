@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
-import emsalafacil.emsalafacildroid.Controller.EnsalamentoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.Model.Ensalamento;
 import emsalafacil.emsalafacildroid.Model.Usuario;
@@ -30,7 +29,6 @@ public class EnsalamentoActivity extends AppCompatActivity
     private TextView txtProfessor;
     private Switch switchDisponibilidade;
     private Button btnShareFacebook;
-    EnsalamentoController ensalamentoController = new EnsalamentoController();
     LoginController loginController = new LoginController();
     CalendarioActivity calendario = new CalendarioActivity();
     int dia = calendario.getDia();
@@ -66,7 +64,7 @@ public class EnsalamentoActivity extends AppCompatActivity
                 txtCurso.setText("Seu curso é: "+ aluno.getCurso().getNome());
                 txtData.setText("Data: "+ dia+"/"+mes+"/"+ano);
                 txtDisciplina.setText(ensalamento.getDisciplina().getDescricao());
-                txtProfessor.setText("Jeremias");//ensalamento.getProfessor().getNome()
+                txtProfessor.setText(ensalamento.getProfessor().getNome());
                 //arrumar inicio e fim, professor e disponibilidade
                 // + ensalamento.getDisciplina());
             }
