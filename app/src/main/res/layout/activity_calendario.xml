@@ -15,28 +15,38 @@
         android:id="@+id/_lblBoasVindas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bem vindo(a)," />
+        android:layout_marginTop="10dp"
+        android:text="Bem vindo(a),"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/_lblMatricula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
         android:text="Matrícula:" />
 
     <TextView
         android:id="@+id/_lblTurma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
         android:text="Sua turma é:" />
 
     <TextView
         android:id="@+id/_lblCurso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
         android:text="Curso:" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="15dp"/>
 </LinearLayout>

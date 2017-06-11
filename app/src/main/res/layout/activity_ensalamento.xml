@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,13 +15,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sua turma é:"
-        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteX="123dp"
         tools:layout_editor_absoluteY="31dp" />
 
     <TextView
         android:id="@+id/textCurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Curso:"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="90dp" />
@@ -30,6 +31,7 @@
         android:id="@+id/textData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Data:"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="142dp" />
@@ -38,6 +40,7 @@
         android:id="@+id/textHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Horário:"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="181dp" />
@@ -46,6 +49,7 @@
         android:id="@+id/textHoraInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Início:"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="212dp" />
@@ -54,6 +58,7 @@
         android:id="@+id/textHoraFim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Fim:"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="246dp" />
@@ -62,6 +67,7 @@
         android:id="@+id/textAula"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Aula:"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="291dp" />
@@ -70,6 +76,7 @@
         android:id="@+id/textAulaDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Descrição"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="325dp" />
@@ -78,37 +85,73 @@
         android:id="@+id/textProfessor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Professor:"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="370dp" />
-
     <TextView
         android:id="@+id/textProfNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Nome"
         tools:layout_editor_absoluteX="39dp"
         tools:layout_editor_absoluteY="418dp" />
-
-    <TextView
-        android:id="@+id/textProfDisponivel"
-        android:layout_width="wrap_content"
+    <TableRow
         android:layout_height="wrap_content"
-        android:text="Professor disponível na faculdade:"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="453dp" />
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+    </TableRow>
 
-    <Switch
-        android:id="@+id/switchDisponibilidade"
-        android:layout_width="wrap_content"
+    <TableRow
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="443dp" />
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+        <TextView
+            android:id="@+id/textProfDisponivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=" Professor disponível na faculdade:"
+            tools:layout_editor_absoluteX="61dp"
+            tools:layout_editor_absoluteY="453dp"
+            android:gravity="left"/>
+        <Switch
+            android:id="@+id/switchDisponibilidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            tools:layout_editor_absoluteX="294dp"
+            tools:layout_editor_absoluteY="443dp" />
 
-    <Button
-        android:id="@+id/btnShareFacebook"
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Compartilhar Ensalamento" />
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnShareFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+
+            android:background="@drawable/botao"
+            android:text="Compartilhar Ensalamento"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botao"
+            android:text="Sair"
+            android:layout_margin="15dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+    </TableRow>
+
+
+</TableLayout>

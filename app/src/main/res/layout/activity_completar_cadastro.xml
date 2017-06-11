@@ -14,12 +14,14 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Informe sua matrícula" />
+        android:text="Informe sua matrícula:"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/editMatricula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:inputType="number" />
 
@@ -27,5 +29,9 @@
         android:id="@+id/btnAvancarMatricula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Avançar" />
+        android:text="Avançar"
+        android:background="@drawable/botao"
+        android:layout_margin="15dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"/>
 </LinearLayout>

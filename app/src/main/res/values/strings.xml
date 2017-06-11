@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EmSalaFacil.droid</string>
+    <string name="app_name">EmSala Fácil</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
