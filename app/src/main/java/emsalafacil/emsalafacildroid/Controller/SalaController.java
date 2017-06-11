@@ -1,9 +1,11 @@
 package emsalafacil.emsalafacildroid.Controller;
 
+import com.google.gson.Gson;
+
 import org.json.JSONObject;
 
 import emsalafacil.emsalafacildroid.Model.Sala;
-import emsalafacil.emsalafacildroid.enumeradores.TipoSala;
+import emsalafacil.emsalafacildroid.Model.TipoSala;
 
 /**
  * Created by camil on 15/04/2017.
@@ -11,54 +13,19 @@ import emsalafacil.emsalafacildroid.enumeradores.TipoSala;
 
 public class SalaController
 {
-    public  Sala GetSalaBy()
-    {
-        Sala sala;
-
-        try
-        {
-            //***************************************************************
-//            URL apiEnd = new URL(urlApi + "/sala/getsala/"+matricula);
-//            int codigoResposta;
-//            HttpURLConnection conexao;
-//            InputStream is;
-//
-//            conexao = (HttpURLConnection) apiEnd.openConnection();
-//            conexao.setRequestMethod("GET");
-//            conexao.setReadTimeout(15000);
-//            conexao.setConnectTimeout(15000);
-//            conexao.connect(); //InvocationTargetException
-//
-//            codigoResposta = conexao.getResponseCode();
-//            if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
-//                is = conexao.getInputStream();
-//            else
-//                is = conexao.getErrorStream();
-//
-//            retorno = Util.rawToJson(is);
-//
-//            turma = JsonToTurma(retorno);
-            //***************************************************************
-
-            sala = GetSalaFake();
-            return sala;
-        }
-        catch (Exception e)
-        {
-            return null;
-        }
-    }
-
     public Sala JsonToSala(String json)
     {
         Sala sala;
+        Gson gson = new Gson();
         try
         {
             JSONObject mainObject = new JSONObject(json);
             sala = new Sala();
-            sala.setCapacidade(mainObject.getInt("capacidade"));
-            sala.setIdSala(mainObject.getInt("idSala"));
-            sala.setTipoDeSala(TipoSala.valueOf(mainObject.getString("tipoDeSala")));
+            sala.setCapacidade(mainObject.getInt("Capacidade"));
+            sala.setNome(mainObject.getString("Nome"));
+            sala.setId(mainObject.getInt("Id"));
+            sala.setTipoDeSala(gson.fromJson(mainObject.getString("TipoSala"),
+                    TipoSala.class));
             return sala;
 
         }
@@ -66,14 +33,5 @@ public class SalaController
         {
             return null;
         }
-    }
-
-    private Sala GetSalaFake()
-    {
-        Sala sala = new Sala();
-        sala.setIdSala(1);;
-        sala.setCapacidade(50);
-        sala.setTipoDeSala(TipoSala.LABORATORIO);
-        return sala;
     }
 }

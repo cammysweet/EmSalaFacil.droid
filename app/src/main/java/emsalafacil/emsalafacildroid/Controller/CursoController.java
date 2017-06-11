@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import emsalafacil.emsalafacildroid.Model.Curso;
 
 /**
- * Created by camil on 10/04/2017.
+ * Created by etson on 10/04/2017.
  */
 
 public class CursoController

@@ -2,77 +2,53 @@ package emsalafacil.emsalafacildroid.Model;
 
 import java.util.Date;
 
-import emsalafacil.emsalafacildroid.enumeradores.Disponibilidade;
-import emsalafacil.emsalafacildroid.enumeradores.Turno;
-
 /**
- * Created by camil on 10/04/2017.
+ * Created by etson on 10/04/2017.
  */
 
 public class Ensalamento
 {
-    public Ensalamento(){}
-    public Ensalamento(int idEnsalamento, Turno turno, Date datainicio, Date dataFim, String diaDaSemana,
-             Disponibilidade disponibilidade, Turma turma, Disciplina disciplina, Sala sala)
-    {
-        this.idEnsalamento = idEnsalamento;
-        this.turno = turno;
-        this.datainicio = datainicio;
-        this.dataFim = dataFim;
-        this.diaDaSemana = diaDaSemana;
-        this.disponibilidade = disponibilidade;
-        this.turma = turma;
-        this.disciplina = disciplina;
-        this.sala = sala;
-    }
-
-    private int idEnsalamento;
-    private Turno turno;
+    private int id;
+    private int idTurma;
+    private String turno;
     private Date datainicio;
     private Date dataFim;
-    private String diaDaSemana;
-    private Disponibilidade disponibilidade;
-    private Turma turma;
+    private String diaSemana;
+    private Boolean disponibilidadeProfessor;
+    private Curso turma;
     private Disciplina disciplina;
     private Sala sala;
+    private Usuario professor;
 
-    public Sala getSala() {
-        return sala;
+    public Usuario getProfessor() {
+        return professor;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setProfessor(Usuario professor) {
+        this.professor = professor;
     }
 
-    public Disciplina getDisciplina() {
-        return disciplina;
+    public int getId() {
+        return id;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Turma getTurma() {
-        return turma;
+    public int getIdTurma() {
+        return idTurma;
     }
 
-    public void setTurma(Turma turma) {
-        this.turma = turma;
+    public void setIdTurma(int idTurma) {
+        this.idTurma = idTurma;
     }
 
-    public int getIdEnsalamento() {
-        return idEnsalamento;
-    }
-
-    public void setIdEnsalamento(int idEnsalamento) {
-        this.idEnsalamento = idEnsalamento;
-    }
-
-    public Turno getTurno() {
+    public String getTurno() {
         return turno;
     }
 
-    public void setTurno(Turno turno) {
+    public void setTurno(String turno) {
         this.turno = turno;
     }
 
@@ -92,21 +68,44 @@ public class Ensalamento
         this.dataFim = dataFim;
     }
 
-    public String getDiaDaSemana() {
-        return diaDaSemana;
+    public String getDiaSemana() {
+        return diaSemana;
     }
 
-    public void setDiaDaSemana(String diaDaSemana) {
-        this.diaDaSemana = diaDaSemana;
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
     }
 
-    public Disponibilidade getDisponibilidade() {
-        return disponibilidade;
+    public Boolean getDisponibilidadeProfessor() {
+        return disponibilidadeProfessor;
     }
 
-    public void setDisponibilidade(Disponibilidade disponibilidade) {
-        this.disponibilidade = disponibilidade;
+    public void setDisponibilidadeProfessor(Boolean disponibilidadeProfessor) {
+        this.disponibilidadeProfessor = disponibilidadeProfessor;
     }
 
+    public Curso getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Curso turma) {
+        this.turma = turma;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
 
 }

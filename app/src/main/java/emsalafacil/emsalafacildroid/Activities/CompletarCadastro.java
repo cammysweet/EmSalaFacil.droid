@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -34,10 +33,7 @@ public class CompletarCadastro extends AppCompatActivity {
     private Button btnAvancarMatricula;
     private String facebookID;
     private String facebookEmail;
-    private Spinner spinnerCurso;
-    private Spinner spinnerTurma;
     private Boolean vinculadoOk;
-    private String responseMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -169,7 +165,6 @@ public class CompletarCadastro extends AppCompatActivity {
                 vinculadoOk = false;
         }
     }
-
 
     private class RecuperaUsuarioApi extends AsyncTask<String, Void, Usuario>
     {

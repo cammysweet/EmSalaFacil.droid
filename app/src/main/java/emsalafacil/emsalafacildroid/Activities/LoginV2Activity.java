@@ -92,17 +92,13 @@ public class LoginV2Activity extends AppCompatActivity {
         });
 
 //        AccessToken accessToken = AccessToken.getCurrentAccessToken();
-//        if(accessToken != null){
-//            goMainScreen(accessToken.getUserId(),
-//                    "camila.cardoso65@hotmail.com", entryMatricula.getText().toString());
-//        }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
 
     private void goMainScreen(String idFacebook, String emailFacebook)
     {

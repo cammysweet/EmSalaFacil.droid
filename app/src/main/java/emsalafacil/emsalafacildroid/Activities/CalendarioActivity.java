@@ -32,6 +32,8 @@ public class CalendarioActivity extends AppCompatActivity
     public static int getMes() { return mes; }
     public static int getAno() { return ano; }
 
+
+
     @Override
     public void onBackPressed() {
         //método vazio, sobrescreve o método base e bloqueia o botão de voltar a tela
@@ -65,6 +67,7 @@ public class CalendarioActivity extends AppCompatActivity
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+
                 // display the selected date by using a toast
                 //Toast.makeText(getApplicationContext(), dayOfMonth +
                         //"/" + month + "/" + year, Toast.LENGTH_LONG).show();
@@ -72,10 +75,10 @@ public class CalendarioActivity extends AppCompatActivity
                 dia = dayOfMonth;
                 mes = month+1;
                 ano = year;
+
                 Intent ensalamentoView = new Intent(packageContext, EnsalamentoActivity.class);
                 startActivity(ensalamentoView);
             }
         });
     }
-
 }

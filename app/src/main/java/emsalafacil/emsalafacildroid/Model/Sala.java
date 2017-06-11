@@ -1,23 +1,23 @@
 package emsalafacil.emsalafacildroid.Model;
 
-import emsalafacil.emsalafacildroid.enumeradores.TipoSala;
-
 /**
  * Created by camil on 10/04/2017.
  */
 
 public class Sala
 {
-    public Sala(){}
-    public Sala(int idSala, int capacidade, TipoSala tipoSala)
-    {
-        this.idSala = idSala;
-        this.capacidade = capacidade;
-        this.tipoSala = tipoSala;
+    private int id;
+    private int capacidade;
+
+    public String getNome() {
+        return nome;
     }
 
-    private int idSala;
-    private int capacidade;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    private String nome;
     private TipoSala tipoSala;
 
     private String Descricao;
@@ -38,12 +38,12 @@ public class Sala
         this.tipoSala = tipoDeSala;
     }
 
-    public int getIdSala() {
-        return idSala;
+    public int getId() {
+        return id;
     }
 
-    public void setIdSala(int idSala) {
-        this.idSala = idSala;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCapacidade() {

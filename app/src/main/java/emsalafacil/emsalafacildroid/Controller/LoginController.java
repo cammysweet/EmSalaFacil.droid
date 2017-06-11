@@ -2,7 +2,7 @@ package emsalafacil.emsalafacildroid.Controller;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 
 /**
- * Created by camil on 08/04/2017.
+ * Created by etson on 08/04/2017.
  */
 
 public class LoginController

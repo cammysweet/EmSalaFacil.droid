@@ -6,7 +6,7 @@ import java.util.List;
 import emsalafacil.emsalafacildroid.Model.Curso;
 
 /**
- * Created by camil on 08/04/2017.
+ * Created by etson on 08/04/2017.
  */
 
 public class InformaCursoTurmaController
