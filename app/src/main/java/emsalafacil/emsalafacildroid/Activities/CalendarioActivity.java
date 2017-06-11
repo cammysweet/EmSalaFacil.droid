@@ -2,6 +2,7 @@ package emsalafacil.emsalafacildroid.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CalendarView;
@@ -9,10 +10,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
+import com.google.gson.Gson;
 
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import emsalafacil.emsalafacildroid.Controller.EnsalamentoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
+import emsalafacil.emsalafacildroid.Model.Ensalamento;
+import emsalafacil.emsalafacildroid.Model.EnsalamentoCommand;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
+import emsalafacil.emsalafacildroid.Util;
 
 public class CalendarioActivity extends AppCompatActivity
 {
@@ -27,11 +37,12 @@ public class CalendarioActivity extends AppCompatActivity
     private static int dia;
     private static int mes;
     private static int ano;
+    private static Ensalamento ensalamento;
 
     public static int getDia() { return dia; }
     public static int getMes() { return mes; }
     public static int getAno() { return ano; }
-
+    public static Ensalamento getEnsalamento() { return ensalamento; }
 
 
     @Override
@@ -68,17 +79,94 @@ public class CalendarioActivity extends AppCompatActivity
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
 
-                // display the selected date by using a toast
-                //Toast.makeText(getApplicationContext(), dayOfMonth +
-                        //"/" + month + "/" + year, Toast.LENGTH_LONG).show();
+                try
+                {
+                    // display the selected date by using a toast
+                    //Toast.makeText(getApplicationContext(), dayOfMonth +
+                    //"/" + month + "/" + year, Toast.LENGTH_LONG).show();
 
-                dia = dayOfMonth;
-                mes = month+1;
-                ano = year;
+                    dia = dayOfMonth;
+                    mes = month+1;
+                    ano = year;
 
-                Intent ensalamentoView = new Intent(packageContext, EnsalamentoActivity.class);
-                startActivity(ensalamentoView);
+                    EnsalamentoCommand cmd = new EnsalamentoCommand();
+                    cmd.setIdTurma(aluno.getIdTurma());
+                    cmd.setAno(ano);
+                    cmd.setDia(dia);
+                    cmd.setMes(mes);
+
+                    new EnsalamentoApi().execute(cmd);
+                    Thread.sleep(5000);
+
+                    if(ensalamento != null)
+                    {
+                        Intent ensalamentoView = new Intent(packageContext, EnsalamentoActivity.class);
+                        startActivity(ensalamentoView);
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), "Oops... Algo deu errado, " +
+                                "tente novamente.", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(getApplicationContext(), "Erro interno " +
+                            e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
+
+    private class EnsalamentoApi extends AsyncTask<EnsalamentoCommand, Void, Ensalamento>
+    {
+        @Override
+        protected Ensalamento doInBackground(EnsalamentoCommand... params)
+        {
+            Gson gson = new Gson();
+            int serverResponseCode;
+            String serverResponseMessage = "";
+            HttpURLConnection urlConnection = null;
+            try
+            {
+                URL url = new URL("http://caiofelipe.com/api/ensalamento/getbydataeturma");
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setRequestProperty("Content-type", "application/json");
+                urlConnection.setDoInput(true);
+                urlConnection.setDoOutput(true);
+
+                DataOutputStream outputStream = new DataOutputStream(urlConnection.getOutputStream());
+
+                String result = gson.toJson(params[0]);
+                outputStream.writeBytes(result);
+
+                serverResponseCode = urlConnection.getResponseCode();
+
+                if(serverResponseCode == HttpURLConnection.HTTP_OK)
+                    serverResponseMessage = Util.webToString(urlConnection.getInputStream());
+
+                outputStream.flush();
+                outputStream.close();
+
+                if(serverResponseMessage != "")
+                    return new EnsalamentoController().JsonToEnsalamento(serverResponseMessage);
+
+                return null;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Ensalamento ens)
+        {
+            ensalamento = ens;
+        }
+    }
+
 }

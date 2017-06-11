@@ -1,60 +1,29 @@
 package emsalafacil.emsalafacildroid.Model;
 
-import java.util.List;
-
-import emsalafacil.emsalafacildroid.Controller.TurmaDisciplinaController;
-
 /**
  * Created by camil on 10/04/2017.
  */
 
 public class Disciplina
 {
-    public Disciplina(){}
-    public Disciplina( int idDisciplina, String descricaoDisciplina,
-            Curso curso)
-    {
-        this.idDisciplina = idDisciplina;
-        this.descricaoDisciplina = descricaoDisciplina;
-        //this.turmasDisciplinas = turmaDisciplinaController.getTurmaDisciplina();
-        this.curso = curso;
+
+    private int id;
+    private String descricao;
+
+    public int getId() {
+        return id;
     }
 
-    private int idDisciplina;
-    private String descricaoDisciplina;
-    private List<TurmaDisciplina> turmasDisciplinas;
-    private Curso curso;
-
-    public Curso getCurso() {
-        return curso;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public List<TurmaDisciplina> getTurmasDisciplinas() {
-        return turmasDisciplinas;
-    }
-
-    public void setTurmasDisciplinas(List<TurmaDisciplina> turmasDisciplinas) {
-        this.turmasDisciplinas = turmasDisciplinas;
-    }
-
-    public int getIdDisciplina() {
-        return idDisciplina;
-    }
-
-    public void setIdDisciplina(int idDisciplina) {
-        this.idDisciplina = idDisciplina;
-    }
-
-    public String getDescricaoDisciplina() {
-        return descricaoDisciplina;
-    }
-
-    public void setDescricaoDisciplina(String descricaoDisciplina) {
-        this.descricaoDisciplina = descricaoDisciplina;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
 

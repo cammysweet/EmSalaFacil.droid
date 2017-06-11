@@ -114,7 +114,7 @@ public class LoginV2Activity extends AppCompatActivity {
             else
             {
                 //TODO alert
-                Toast.makeText(getApplicationContext(), R.string.error_login+erroLoginFacebookApi,
+                Toast.makeText(getApplicationContext(), "Oops! Algo deu errado. Tente novamente.",
                         Toast.LENGTH_LONG).show();
             }
 
@@ -333,4 +333,5 @@ public class LoginV2Activity extends AppCompatActivity {
 
         }
     }
+
 }
