@@ -1,12 +1,11 @@
 package emsalafacil.emsalafacildroid.Model;
 
 /**
- * Created by camil on 10/04/2017.
+ * Created by camil on 10/06/2017.
  */
 
-public class Disciplina
+public class TipoSala
 {
-
     private int id;
     private String descricao;
 

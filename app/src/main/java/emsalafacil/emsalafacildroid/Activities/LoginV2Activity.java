@@ -25,7 +25,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
 
-import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.Model.Autenticacao;
 import emsalafacil.emsalafacildroid.Model.LoginCommand;
@@ -92,17 +91,13 @@ public class LoginV2Activity extends AppCompatActivity {
         });
 
 //        AccessToken accessToken = AccessToken.getCurrentAccessToken();
-//        if(accessToken != null){
-//            goMainScreen(accessToken.getUserId(),
-//                    "camila.cardoso65@hotmail.com", entryMatricula.getText().toString());
-//        }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
 
     private void goMainScreen(String idFacebook, String emailFacebook)
     {
@@ -118,7 +113,7 @@ public class LoginV2Activity extends AppCompatActivity {
             else
             {
                 //TODO alert
-                Toast.makeText(getApplicationContext(), R.string.error_login+erroLoginFacebookApi,
+                Toast.makeText(getApplicationContext(), "Oops! Algo deu errado. Tente novamente.",
                         Toast.LENGTH_LONG).show();
             }
 
@@ -261,7 +256,7 @@ public class LoginV2Activity extends AppCompatActivity {
                 outputStream.close();
 
                 if(serverResponseMessage != "")
-                    return new AlunoController().JsonToAluno(serverResponseMessage);
+                    return Util.JsonToUsuario(serverResponseMessage);
 
                 return null;
             }
@@ -304,7 +299,7 @@ public class LoginV2Activity extends AppCompatActivity {
                 {
                     loginFacebookApiOk = true;
                     is = conexao.getInputStream();
-                    return new AlunoController().JsonToAluno(Util.rawToJson(is));
+                    return Util.JsonToUsuario(Util.rawToJson(is));
                 }
 
                 else
@@ -337,4 +332,5 @@ public class LoginV2Activity extends AppCompatActivity {
 
         }
     }
+
 }

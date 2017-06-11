@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -18,7 +17,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import emsalafacil.emsalafacildroid.Controller.AlunoController;
 import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.Model.VinculoFacebookCommand;
@@ -34,10 +32,7 @@ public class CompletarCadastro extends AppCompatActivity {
     private Button btnAvancarMatricula;
     private String facebookID;
     private String facebookEmail;
-    private Spinner spinnerCurso;
-    private Spinner spinnerTurma;
     private Boolean vinculadoOk;
-    private String responseMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -170,7 +165,6 @@ public class CompletarCadastro extends AppCompatActivity {
         }
     }
 
-
     private class RecuperaUsuarioApi extends AsyncTask<String, Void, Usuario>
     {
         @Override
@@ -194,7 +188,7 @@ public class CompletarCadastro extends AppCompatActivity {
                 if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
                 {
                     is = conexao.getInputStream();
-                    return new AlunoController().JsonToAluno(Util.rawToJson(is));
+                    return Util.JsonToUsuario(Util.rawToJson(is));
                 }
                 else
                     return null;
