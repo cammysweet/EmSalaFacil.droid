@@ -1,5 +1,6 @@
 package emsalafacil.emsalafacildroid.Activities;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
@@ -29,6 +31,7 @@ public class EnsalamentoActivity extends AppCompatActivity
     private TextView txtProfessor;
     private Switch switchDisponibilidade;
     private Button btnShareFacebook;
+    private Button btnLogout;
     LoginController loginController = new LoginController();
     CalendarioActivity calendario = new CalendarioActivity();
     int dia = calendario.getDia();
@@ -54,6 +57,7 @@ public class EnsalamentoActivity extends AppCompatActivity
             txtProfessor = (TextView) findViewById(R.id.textProfNome);
             switchDisponibilidade = (Switch) findViewById(R.id.switchDisponibilidade);
             btnShareFacebook = (Button) findViewById(R.id.btnShareFacebook);
+            btnLogout = (Button) findViewById(R.id.logout);
 
 
             aluno = loginController.getAlunoLogado();
@@ -74,6 +78,15 @@ public class EnsalamentoActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     shareContent(view);
+                }
+            });
+
+            btnLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LoginController.logout();
+                    Intent intent = new Intent(EnsalamentoActivity.this, LoginV2Activity.class);
+                    startActivity(intent);
                 }
             });
         }

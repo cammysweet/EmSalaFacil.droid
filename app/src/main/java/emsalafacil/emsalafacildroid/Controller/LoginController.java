@@ -1,4 +1,10 @@
 package emsalafacil.emsalafacildroid.Controller;
+import android.content.Intent;
+
+import com.facebook.login.LoginManager;
+
+import emsalafacil.emsalafacildroid.Activities.EnsalamentoActivity;
+import emsalafacil.emsalafacildroid.Activities.LoginV2Activity;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 
 /**
@@ -25,6 +31,15 @@ public class LoginController
     public boolean isPasswordValid(String password)
     {
         return password.length() > 4;
+    }
+
+    public static void logout()
+    {
+        if(LoginManager.getInstance() != null)
+            LoginManager.getInstance().logOut();
+
+        LoginController.setAlunoLogado(null);
+        LoginController.setVinculadoFacebook(false);
     }
 
 

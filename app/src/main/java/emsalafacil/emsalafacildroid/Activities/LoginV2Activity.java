@@ -112,7 +112,7 @@ public class LoginV2Activity extends AppCompatActivity {
             }
             else
             {
-                //TODO alert
+                LoginController.logout();
                 Toast.makeText(getApplicationContext(), "Oops! Algo deu errado. Tente novamente.",
                         Toast.LENGTH_LONG).show();
             }
