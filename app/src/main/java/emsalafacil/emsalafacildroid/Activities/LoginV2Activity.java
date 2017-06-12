@@ -116,6 +116,7 @@ public class LoginV2Activity extends AppCompatActivity {
             else
             {
                 LoginController.logout();
+                if (statusCodeLoginFacebookApi == null) statusCodeLoginFacebookApi = "sem resposta";
                 Toast.makeText(getApplicationContext(), "Oops! Algo deu errado. Tente novamente. Resposta do servidor: "
                         + statusCodeLoginFacebookApi,
                         Toast.LENGTH_LONG).show();

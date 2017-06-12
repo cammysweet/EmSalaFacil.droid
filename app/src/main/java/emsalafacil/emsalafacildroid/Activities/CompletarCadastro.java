@@ -88,18 +88,14 @@ public class CompletarCadastro extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else
-                        {
                             Toast.makeText(getApplicationContext(), "Erro ao  recuperar usuário.", Toast.LENGTH_SHORT).show();
-                        }
                     }
                     else
-                    {
                         Toast.makeText(getApplicationContext(), "Erro ao vincular contas.", Toast.LENGTH_SHORT).show();
-                    }
                 }
                 catch (Exception e)
                 {
-                    int x = 0;
+                    Toast.makeText(getApplicationContext(), "Erro interno: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
             }
