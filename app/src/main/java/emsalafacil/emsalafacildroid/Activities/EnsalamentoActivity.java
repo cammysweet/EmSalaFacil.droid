@@ -1,5 +1,6 @@
 package emsalafacil.emsalafacildroid.Activities;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +10,12 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
 import emsalafacil.emsalafacildroid.Controller.LoginController;
+import emsalafacil.emsalafacildroid.Model.Autenticacao;
 import emsalafacil.emsalafacildroid.Model.Ensalamento;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
@@ -29,7 +32,7 @@ public class EnsalamentoActivity extends AppCompatActivity
     private TextView txtProfessor;
     private Switch switchDisponibilidade;
     private Button btnShareFacebook;
-    LoginController loginController = new LoginController();
+    private Button btnLogout;
     CalendarioActivity calendario = new CalendarioActivity();
     int dia = calendario.getDia();
     int mes = calendario.getMes();
@@ -54,9 +57,10 @@ public class EnsalamentoActivity extends AppCompatActivity
             txtProfessor = (TextView) findViewById(R.id.textProfNome);
             switchDisponibilidade = (Switch) findViewById(R.id.switchDisponibilidade);
             btnShareFacebook = (Button) findViewById(R.id.btnShareFacebook);
+            btnLogout = (Button) findViewById(R.id.logout);
 
 
-            aluno = loginController.getAlunoLogado();
+            aluno = Autenticacao.getUsuarioLogado();
 
             if(ensalamento != null)
             {
@@ -74,6 +78,15 @@ public class EnsalamentoActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     shareContent(view);
+                }
+            });
+
+            btnLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LoginController.logout();
+                    Intent intent = new Intent(EnsalamentoActivity.this, LoginV2Activity.class);
+                    startActivity(intent);
                 }
             });
         }

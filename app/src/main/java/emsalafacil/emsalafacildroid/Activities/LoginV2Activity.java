@@ -41,6 +41,10 @@ public class LoginV2Activity extends AppCompatActivity {
     Button btnLogin;
     LoginButton loginButton;
     Boolean loginFacebookApiOk;
+    Boolean loginNativoApiOk;
+    String statusCodeLoginFacebookApi;
+    String statusCodeLoginNativoApi;
+    String jsonUsuarioApi;
     String erroLoginFacebookApi;
     Button botaoFacebook;
 
@@ -84,7 +88,7 @@ public class LoginV2Activity extends AppCompatActivity {
     {
         if(!loginFacebook(idFacebook))
         {
-            if(erroLoginFacebookApi == "401")
+            if(statusCodeLoginFacebookApi == "401")
             {
                 Intent intent = new Intent(LoginV2Activity.this,CompletarCadastro.class);
                 intent.putExtra("FB_ID", idFacebook);
@@ -93,16 +97,30 @@ public class LoginV2Activity extends AppCompatActivity {
             }
             else
             {
-                //TODO alert
-                Toast.makeText(getApplicationContext(), "Oops! Algo deu errado. Tente novamente.",
+                LoginController.logout();
+                Toast.makeText(getApplicationContext(), "Oops! Algo deu errado. Tente novamente. Resposta do servidor: "
+                        + statusCodeLoginFacebookApi,
                         Toast.LENGTH_LONG).show();
             }
 
         }
         else
         {
-            Intent intent = new Intent(LoginV2Activity.this, CalendarioActivity.class);
-            startActivity(intent);
+            if(Autenticacao.getUsuarioLogado() != null)
+            {
+                Intent intent = new Intent(LoginV2Activity.this, CalendarioActivity.class);
+                startActivity(intent);
+            }
+            else
+            {
+                LoginController.logout();
+
+                if(statusCodeLoginFacebookApi == null) statusCodeLoginFacebookApi = "sem resposta";
+                Toast.makeText(getApplicationContext(), "Oops! Usuário não carregado. Tente novamente. Resposta do servidor: "
+                        + statusCodeLoginFacebookApi,
+                        Toast.LENGTH_LONG).show();
+            }
+
         }
 
     }
@@ -146,9 +164,21 @@ public class LoginV2Activity extends AppCompatActivity {
         }
         else if(!loginNativo(loginObj))
         {
-            entryMatricula.setError("Matrícula ou senha inválidos.");
-            focusView = entryMatricula;
-            cancel = true;
+            if(statusCodeLoginNativoApi == "401")
+            {
+                entryMatricula.setError("Usuário não cadastrado nesta combinação de matrícula e senha. Verifique.");
+                focusView = entryMatricula;
+                cancel = true;
+            }
+            else
+            {
+                if(statusCodeLoginNativoApi == null) statusCodeLoginNativoApi = "sem resposta";
+                Toast.makeText(getApplicationContext(), "Oops! Algo deu errado, tente novamente. Resposta do servidor: "
+                        + statusCodeLoginNativoApi, Toast.LENGTH_LONG).show();
+                focusView = entryMatricula;
+                cancel = true;
+            }
+
         }
 
         if (cancel)
@@ -168,19 +198,41 @@ public class LoginV2Activity extends AppCompatActivity {
     {
         try
         {
-            LoginController loginController = new LoginController();
             new LoginNativoApi().execute(login);
             Thread.sleep(5000);
-            if (loginController.getAlunoLogado() == null)
-                return false;
-            Autenticacao.setLogado(true);
-            Autenticacao.setLogadoFacebook(false);
-            Autenticacao.setUsuarioLogado(loginController.getAlunoLogado());
 
-            return  true;
+            if (!loginNativoApiOk)
+                return false;
+
+            if(Autenticacao.getUsuarioLogado() != null)
+            {
+                Autenticacao.setLogado(true);
+                Autenticacao.setLogadoFacebook(false);
+                Autenticacao.setUsuarioLogado(Autenticacao.getUsuarioLogado());
+                return  true;
+            }
+            else
+            {
+                if(jsonUsuarioApi != null && jsonUsuarioApi != "")
+                {
+                    Autenticacao.setUsuarioLogado(Util.JsonToUsuario(jsonUsuarioApi));
+                    Autenticacao.setLogado(true);
+                    Autenticacao.setLogadoFacebook(false);
+                    return true;
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Oops! Usuário não carregado, tente novamente.  ",
+                            Toast.LENGTH_SHORT).show();
+                    return  false;
+                }
+            }
         }
        catch(Exception e)
        {
+           Toast.makeText(getApplicationContext(), "Oops! Erro interno, tente novamente.  "
+                           + e.getMessage(),
+                   Toast.LENGTH_LONG).show();
            return false;
        }
     }
@@ -189,18 +241,39 @@ public class LoginV2Activity extends AppCompatActivity {
     {
         try
         {
-            LoginController loginController = new LoginController();
             new LoginFacebookApi().execute(idFacebook);
             Thread.sleep(5000);
-            if(loginController.getAlunoLogado() == null)
+            if(!loginFacebookApiOk)
                 return false;
-            Autenticacao.setLogadoFacebook(true);
-            Autenticacao.setLogado(true);
-            Autenticacao.setUsuarioLogado(loginController.getAlunoLogado());
-            return true;
+            if(Autenticacao.getUsuarioLogado() != null)
+            {
+                Autenticacao.setLogadoFacebook(true);
+                Autenticacao.setLogado(true);
+                Autenticacao.setUsuarioLogado(Autenticacao.getUsuarioLogado());
+                return true;
+            }
+            else
+            {
+                if(jsonUsuarioApi != null && jsonUsuarioApi != "")
+                {
+                    Autenticacao.setUsuarioLogado(Util.JsonToUsuario(jsonUsuarioApi));
+                    Autenticacao.setLogado(true);
+                    Autenticacao.setLogadoFacebook(false);
+                    return true;
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Oops! Usuário não carregado, tente novamente.  ",
+                            Toast.LENGTH_SHORT).show();
+                    return  false;
+                }
+            }
         }
         catch (Exception e)
         {
+            Toast.makeText(getApplicationContext(), "Oops! Erro interno, tente novamente.  "
+                            + e.getMessage(),
+                    Toast.LENGTH_LONG).show();
             return false;
         }
     }
@@ -231,18 +304,39 @@ public class LoginV2Activity extends AppCompatActivity {
                 serverResponseCode = urlConnection.getResponseCode();
 
                 if(serverResponseCode == HttpURLConnection.HTTP_OK)
+                {
+                    loginNativoApiOk = true;
+                    statusCodeLoginNativoApi = "200";
                     serverResponseMessage = Util.webToString(urlConnection.getInputStream());
+                }
+                else if(serverResponseCode == HttpURLConnection.HTTP_UNAUTHORIZED)
+                {
+                    statusCodeLoginNativoApi = "401";
+                    loginNativoApiOk = false;
+                }
+
+                else
+                {
+                    statusCodeLoginNativoApi = urlConnection.getErrorStream().toString();
+                    loginFacebookApiOk = false;
+                }
 
                 outputStream.flush();
                 outputStream.close();
 
                 if(serverResponseMessage != "")
+                {
+                    jsonUsuarioApi = serverResponseMessage;
                     return Util.JsonToUsuario(serverResponseMessage);
+                }
+
 
                 return null;
             }
             catch(Exception e)
             {
+                statusCodeLoginNativoApi = e.getMessage();
+                loginNativoApiOk = false;
                 return null;
             }
         }
@@ -250,8 +344,7 @@ public class LoginV2Activity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Usuario usuario)
         {
-            LoginController loginController = new LoginController();
-            loginController.setAlunoLogado(usuario);
+            Autenticacao.setUsuarioLogado(usuario);
         }
     }
 
@@ -276,19 +369,24 @@ public class LoginV2Activity extends AppCompatActivity {
                 conexao.connect(); //InvocationTargetException
 
                 codigoResposta = conexao.getResponseCode();
-                if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
+                if (codigoResposta == HttpURLConnection.HTTP_OK)
                 {
                     loginFacebookApiOk = true;
+                    statusCodeLoginFacebookApi = "200";
                     is = conexao.getInputStream();
-                    return Util.JsonToUsuario(Util.rawToJson(is));
+                    String json = Util.rawToJson(is);
+                    jsonUsuarioApi = json;
+                    return Util.JsonToUsuario(json);
                 }
 
                 else
                 {
                     if(codigoResposta == HttpURLConnection.HTTP_UNAUTHORIZED)
-                        erroLoginFacebookApi = "401";
+                        statusCodeLoginFacebookApi = "401";
                     else
-                        erroLoginFacebookApi = conexao.getErrorStream().toString();
+                    {
+                        statusCodeLoginFacebookApi = conexao.getErrorStream().toString();
+                    }
 
                     loginFacebookApiOk = false;
                     return null;
@@ -296,7 +394,7 @@ public class LoginV2Activity extends AppCompatActivity {
             }
             catch(Exception e)
             {
-                erroLoginFacebookApi = e.getMessage();
+                statusCodeLoginFacebookApi = e.getMessage();
                 loginFacebookApiOk = false;
                 return null;
             }
@@ -307,8 +405,7 @@ public class LoginV2Activity extends AppCompatActivity {
         {
             if(usuario != null)
             {
-                LoginController loginController = new LoginController();
-                loginController.setAlunoLogado(usuario);
+                Autenticacao.setUsuarioLogado(usuario);
             }
 
         }

@@ -18,6 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import emsalafacil.emsalafacildroid.Controller.LoginController;
+import emsalafacil.emsalafacildroid.Model.Autenticacao;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.Model.VinculoFacebookCommand;
 import emsalafacil.emsalafacildroid.R;
@@ -81,7 +82,7 @@ public class CompletarCadastro extends AppCompatActivity {
                     {
                         new RecuperaUsuarioApi().execute(matricula);
                         Thread.sleep(5000);
-                        if(LoginController.getAlunoLogado() != null)
+                        if(Autenticacao.getUsuarioLogado() != null)
                         {
                             Intent intent = new Intent(CompletarCadastro.this, CalendarioActivity.class);
                             startActivity(intent);
@@ -157,7 +158,7 @@ public class CompletarCadastro extends AppCompatActivity {
             if(vinculado)
             {
                 LoginController loginController = new LoginController();
-                loginController.setVinculadoFacebook(true);
+                Autenticacao.setVinculadoFacebook(true);
                 vinculadoOk = true;
             }
             else
@@ -202,7 +203,7 @@ public class CompletarCadastro extends AppCompatActivity {
         @Override
         protected void onPostExecute(Usuario usuario)
         {
-            LoginController.setAlunoLogado(usuario);
+            Autenticacao.setUsuarioLogado(usuario);
         }
     }
 }
