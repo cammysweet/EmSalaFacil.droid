@@ -42,6 +42,7 @@ public class LoginV2Activity extends AppCompatActivity {
     LoginButton loginButton;
     Boolean loginFacebookApiOk;
     String erroLoginFacebookApi;
+    Button botaoFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -63,33 +64,13 @@ public class LoginV2Activity extends AppCompatActivity {
 
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) findViewById(R.id.btnLoginFacebookv2);
-
-        loginButton.setReadPermissions(Arrays.asList("email","public_profile"));//, , "user_friends", "publish_actions"
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
-        {
+        botaoFacebook = (Button) findViewById(R.id.buttonFacebook);
+        botaoFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSuccess(LoginResult loginResult)
-            {
-                Log.i("ID_FB",loginResult.getAccessToken().getUserId());
-                goMainScreen(loginResult.getAccessToken().getUserId(),
-                        "camila.cardoso65@hotmail.com");
-
-            }
-
-            @Override
-            public void onCancel()
-            {
-                Toast.makeText(getApplicationContext(), R.string.cancel_login, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onError(FacebookException error)
-            {
-                Toast.makeText(getApplicationContext(), R.string.error_login+error.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                loginFacebook();
             }
         });
-
 //        AccessToken accessToken = AccessToken.getCurrentAccessToken();
     }
 
@@ -331,6 +312,34 @@ public class LoginV2Activity extends AppCompatActivity {
             }
 
         }
+    }
+    private void loginFacebook (){
+        loginButton.performClick();
+        loginButton.setReadPermissions(Arrays.asList("email","public_profile"));//, , "user_friends", "publish_actions"
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
+        {
+            @Override
+            public void onSuccess(LoginResult loginResult)
+            {
+                Log.i("ID_FB",loginResult.getAccessToken().getUserId());
+                goMainScreen(loginResult.getAccessToken().getUserId(),
+                        "camila.cardoso65@hotmail.com");
+
+            }
+
+            @Override
+            public void onCancel()
+            {
+                Toast.makeText(getApplicationContext(), R.string.cancel_login, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(FacebookException error)
+            {
+                Toast.makeText(getApplicationContext(), R.string.error_login+error.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
