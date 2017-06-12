@@ -17,6 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import emsalafacil.emsalafacildroid.Controller.LoginController;
+import emsalafacil.emsalafacildroid.Model.Autenticacao;
 import emsalafacil.emsalafacildroid.Model.Ensalamento;
 import emsalafacil.emsalafacildroid.Model.EnsalamentoCommand;
 import emsalafacil.emsalafacildroid.Model.Usuario;
@@ -67,7 +68,7 @@ public class CalendarioActivity extends AppCompatActivity
         lblTurma = (TextView) findViewById(R.id._lblTurma);
         lblCurso = (TextView) findViewById(R.id._lblCurso);
 
-        final Usuario aluno = loginController.getAlunoLogado();
+        final Usuario aluno = Autenticacao.getUsuarioLogado();
 
         lblNome.setText("Bem Vindo (a) "+aluno.getNome());
         lblMatricula.setText("Matrícula: "+aluno.getMatricula());
@@ -99,8 +100,16 @@ public class CalendarioActivity extends AppCompatActivity
 
                     if(ensalamento != null)
                     {
-                        Intent ensalamentoView = new Intent(packageContext, EnsalamentoActivity.class);
-                        startActivity(ensalamentoView);
+                        if(ensalamento.getId() != 0)
+                        {
+                            Intent ensalamentoView = new Intent(packageContext, EnsalamentoActivity.class);
+                            startActivity(ensalamentoView);
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(), "Não existe ensalamento cadastrado para sua turma nesta data.",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                     else
                     {
@@ -145,15 +154,19 @@ public class CalendarioActivity extends AppCompatActivity
                 serverResponseCode = urlConnection.getResponseCode();
 
                 if(serverResponseCode == HttpURLConnection.HTTP_OK)
+                {
                     serverResponseMessage = Util.webToString(urlConnection.getInputStream());
+                    ensalamento = Util.JsonToEnsalamento(serverResponseMessage);
+                }
+                else
+                {
+                    ensalamento = new Ensalamento();
 
+                }
                 outputStream.flush();
                 outputStream.close();
 
-                if(serverResponseMessage != "")
-                    return Util.JsonToEnsalamento(serverResponseMessage);
-
-                return null;
+                return ensalamento;
             }
             catch(Exception e)
             {

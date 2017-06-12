@@ -15,6 +15,7 @@ import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
 import emsalafacil.emsalafacildroid.Controller.LoginController;
+import emsalafacil.emsalafacildroid.Model.Autenticacao;
 import emsalafacil.emsalafacildroid.Model.Ensalamento;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.R;
@@ -32,7 +33,6 @@ public class EnsalamentoActivity extends AppCompatActivity
     private Switch switchDisponibilidade;
     private Button btnShareFacebook;
     private Button btnLogout;
-    LoginController loginController = new LoginController();
     CalendarioActivity calendario = new CalendarioActivity();
     int dia = calendario.getDia();
     int mes = calendario.getMes();
@@ -60,7 +60,7 @@ public class EnsalamentoActivity extends AppCompatActivity
             btnLogout = (Button) findViewById(R.id.logout);
 
 
-            aluno = loginController.getAlunoLogado();
+            aluno = Autenticacao.getUsuarioLogado();
 
             if(ensalamento != null)
             {
