@@ -1,7 +1,7 @@
 package emsalafacil.emsalafacildroid.Model;
 
 /**
- * Created by camil on 24/05/2017.
+ * Created by etson on 24/05/2017.
  */
 
 public class Autenticacao

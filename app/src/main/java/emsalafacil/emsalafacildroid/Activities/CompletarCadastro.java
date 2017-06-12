@@ -17,7 +17,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import emsalafacil.emsalafacildroid.Controller.LoginController;
 import emsalafacil.emsalafacildroid.Model.Autenticacao;
 import emsalafacil.emsalafacildroid.Model.Usuario;
 import emsalafacil.emsalafacildroid.Model.VinculoFacebookCommand;
@@ -34,6 +33,7 @@ public class CompletarCadastro extends AppCompatActivity {
     private String facebookID;
     private String facebookEmail;
     private Boolean vinculadoOk;
+    private String jsonUsuarioApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -84,11 +84,23 @@ public class CompletarCadastro extends AppCompatActivity {
                         Thread.sleep(5000);
                         if(Autenticacao.getUsuarioLogado() != null)
                         {
+                            Autenticacao.setVinculadoFacebook(true);
                             Intent intent = new Intent(CompletarCadastro.this, CalendarioActivity.class);
                             startActivity(intent);
                         }
                         else
-                            Toast.makeText(getApplicationContext(), "Erro ao  recuperar usuário.", Toast.LENGTH_SHORT).show();
+                        {
+                            if(jsonUsuarioApi != "" && jsonUsuarioApi != null)
+                            {
+                                Autenticacao.setUsuarioLogado(Util.JsonToUsuario(jsonUsuarioApi));
+                                Autenticacao.setVinculadoFacebook(true);
+                                Intent intent = new Intent(CompletarCadastro.this, CalendarioActivity.class);
+                                startActivity(intent);
+                            }
+                            else
+                                Toast.makeText(getApplicationContext(), "Erro ao  recuperar usuário.",
+                                        Toast.LENGTH_SHORT).show();
+                        }
                     }
                     else
                         Toast.makeText(getApplicationContext(), "Erro ao vincular contas.", Toast.LENGTH_SHORT).show();
@@ -132,13 +144,20 @@ public class CompletarCadastro extends AppCompatActivity {
                 outputStream.flush();
                 outputStream.close();
                 if(serverResponseCode == HttpURLConnection.HTTP_OK)
+                {
+                    vinculadoOk = true;
                     return  true;
+                }
                 else
+                {
+                    vinculadoOk = false;
                     return  false;
+                }
             }
             catch(Exception e)
             {
-                return false;
+                vinculadoOk = false;
+                return  false;
             }
             finally
             {
@@ -153,7 +172,6 @@ public class CompletarCadastro extends AppCompatActivity {
         {
             if(vinculado)
             {
-                LoginController loginController = new LoginController();
                 Autenticacao.setVinculadoFacebook(true);
                 vinculadoOk = true;
             }
@@ -185,20 +203,27 @@ public class CompletarCadastro extends AppCompatActivity {
                 if (codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST)
                 {
                     is = conexao.getInputStream();
-                    return Util.JsonToUsuario(Util.rawToJson(is));
+                    String json = Util.rawToJson(is);
+                    jsonUsuarioApi = json;
+                    return Util.JsonToUsuario(json);
                 }
                 else
-                    return null;
+                {
+                    jsonUsuarioApi = "";
+                    return  new Usuario();
+                }
             }
             catch(Exception e)
             {
-                return null;
+                jsonUsuarioApi = "";
+                return  new Usuario();
             }
         }
 
         @Override
         protected void onPostExecute(Usuario usuario)
         {
+            if(usuario == null) usuario = new Usuario();
             Autenticacao.setUsuarioLogado(usuario);
         }
     }

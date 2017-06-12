@@ -74,6 +74,7 @@ public class LoginV2Activity extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult)
             {
                 Log.i("ID_FB",loginResult.getAccessToken().getUserId());
+                //Set<String> permissoes = loginResult.getAccessToken().getPermissions();
                 goMainScreen(loginResult.getAccessToken().getUserId(),
                         "camila.cardoso65@hotmail.com");
 

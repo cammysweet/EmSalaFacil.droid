@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Adilson\git\EmSalaFacil.droid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\camil\Source\Repos\EmSalaFacilDroid\EmSalaFacil.droid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="927d8b324e028b2aa04d26abae068e693ba86fdf">
+        <dex dex="C:\Users\camil\Source\Repos\EmSalaFacilDroid\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_ce6061630aa0128fe97d04ffdc8b8abcf01c1179\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\camil\Source\Repos\EmSalaFacilDroid\EmSalaFacil.droid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\Adilson\git\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e63c453092154507ae38e8ee1530270efb8e0be2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Adilson\git\EmSalaFacil.droid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="633f261ea933b9c0ed79febec50d39e279929852">
-        <dex dex="C:\Users\Adilson\git\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_cb483da1f59ed04f0677fc732f05ffc6b6ade648\classes.dex" />
+        <dex dex="C:\Users\camil\Source\Repos\EmSalaFacilDroid\EmSalaFacil.droid\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_332d140612c4dcb1ea51621ea3c82875519df3e6\classes.dex" />
     </item>
 
 </items>
