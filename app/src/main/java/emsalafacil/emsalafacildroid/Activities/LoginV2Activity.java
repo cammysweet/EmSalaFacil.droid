@@ -71,10 +71,32 @@ public class LoginV2Activity extends AppCompatActivity {
         botaoFacebook = (Button) findViewById(R.id.buttonFacebook);
         botaoFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onSuccess(LoginResult loginResult)
+            {
+                Log.i("ID_FB",loginResult.getAccessToken().getUserId());
+                //Set<String> permissoes = loginResult.getAccessToken().getPermissions();
+                goMainScreen(loginResult.getAccessToken().getUserId(),
+                        "camila.cardoso65@hotmail.com");
+
+            }
+
+            @Override
+            public void onCancel()
+            {
+                Toast.makeText(getApplicationContext(), R.string.cancel_login, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(FacebookException error)
+            {
+                Toast.makeText(getApplicationContext(), R.string.error_login+error.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+
             public void onClick(View v) {
                 loginFacebook();
             }
         });
+
 //        AccessToken accessToken = AccessToken.getCurrentAccessToken();
     }
 
@@ -98,6 +120,7 @@ public class LoginV2Activity extends AppCompatActivity {
             else
             {
                 LoginController.logout();
+                if (statusCodeLoginFacebookApi == null) statusCodeLoginFacebookApi = "sem resposta";
                 Toast.makeText(getApplicationContext(), "Oops! Algo deu errado. Tente novamente. Resposta do servidor: "
                         + statusCodeLoginFacebookApi,
                         Toast.LENGTH_LONG).show();
